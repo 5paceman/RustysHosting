@@ -4,14 +4,14 @@ require_once 'core/init.php';
 class Redis {
 
     private static $_instance = null;
-    private static $COMMON_QUEUE = "brooce:queue:common:pending";
+    public static $COMMON_QUEUE = "brooce:queue:common:pending";
     private $_predis;
 
     private function __construct()
     {
-        $this->$_predis = new Predis\Client([
+        $this->_predis = new Predis\Client([
             'host' => Config::get('redis/ip'),
-            'port' => Config::get('redis/post')
+            'port' => Config::get('redis/port')
         ]);
     }
 
@@ -22,6 +22,12 @@ class Redis {
             self::$_instance = new Redis();
         }
         return self::$_instance;
+    }
+
+    public function putJobToMachine($machine_id, $command, $options = array())
+    {
+        $MachineName = DB::getInstance()->get('machines', array('id', '=', $machine_id))->first()->dns_name;
+        $this->putJob($command, "brooce:queue:".$MachineName.":pending", $options);
     }
 
     public function putJob($command, $queue, $options = array())

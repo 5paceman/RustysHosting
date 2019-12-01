@@ -48,12 +48,15 @@ class Service {
         $service_password = generateRandomString(10, true);
         $result = $this->_db->insert('services', array(
             'plan_id' => $plan_id,
+            'service_id' => $service_id,
+            'service_password' => $service_password,
             'user_id' => $user_id,
             'expiry' => $expiry,
             'machine_id' => $machine_id,
             'port' => $port,
             'stripe_id' => $stripe_id
         ));
+        Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan1 20971520 ".$service_password." ".$port);
         if(!$result) {
             print_r($this->_db->errorInfo());
         }
