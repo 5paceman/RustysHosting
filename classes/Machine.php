@@ -28,6 +28,7 @@ class Machine {
                 $highestPort = $service->port;
             }
         }
-        return ($highestPort + 3);
+        $highestPort = $highestPort + 3;
+        return $highestPort;
     }
 }

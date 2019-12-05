@@ -4,7 +4,8 @@ require 'functions/stringtools.php';
 
 class Service {
     private $_data,
-            $_db;
+            $_db,
+            $_serviceConfiguration;
 
     public function __construct($id = null, $data = null) {
         $this->_db = DB::getInstance();
@@ -21,15 +22,25 @@ class Service {
         $data = $this->_db->get('services', array('id', '=', $id));
         if($data->count()) {
             $this->_data = $data->first();
+            retrieveConfig();
             return true;
         } else {
             return false;
         }
     }
 
-    public function findAll($service_id) {
+    private function retrieveConfig()
+    {
+        $service_config = $this->_db->get('service_configurations', array('service_id', '=', $this->id()));
+        if($service_config->count())
+        {
+            $this->_serviceConfiguration = $service_config->first();
+        }
+    }
+
+    public function findAll($user_id) {
         $services = array();
-        $data = $this->_db->get('services', array('user_id', '=', $service_id));
+        $data = $this->_db->get('services', array('user_id', '=', $user_id));
         if($data->count()) {
             foreach($data->results() as $row) {
                 $service = new Service(null, $row);
@@ -44,7 +55,7 @@ class Service {
         $datetime = new DateTime("+1 month");
         $expiry = $datetime->format('Y-m-d H:i:s');
         $port = Machine::getNextPort($game_id, $machine_id);
-        $service_id = generateRandomString(8, false);
+        $service_id = generateRandomString(12, false);
         $service_password = generateRandomString(10, true);
         $result = $this->_db->insert('services', array(
             'plan_id' => $plan_id,
@@ -56,9 +67,14 @@ class Service {
             'port' => $port,
             'stripe_id' => $stripe_id
         ));
-        Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan1 20971520 ".$service_password." ".$port);
         if(!$result) {
             print_r($this->_db->errorInfo());
+        } else {
+            Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan1 20971520 ".$service_password." ".$port);
+            $serviceId = $this->_db->first()->id;
+            $result = $this->_db->insert('service_configurations', array(
+                'service_id' => $serviceId
+            ));
         }
     }
 
@@ -87,6 +103,15 @@ class Service {
         } else {
             return '';
         }
+    }
+
+    public function config()
+    {
+        if(!isset($this->_serviceConfiguration))
+        {
+            $this->retrieveConfig();
+        }
+        return $this->_serviceConfiguration;
     }
 
     public function stripeID()

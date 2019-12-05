@@ -16,6 +16,7 @@ if($user->isLoggedIn()) {
     if($user->hasPermission('admin')) {
         echo 'You\'re an admin<br/>';
     }
+    echo Machine::getNextPort(1, 2);
     $token = Token::generate();
     ?>
         <p>Hello <a href="profile.php?user=<?php echo escape($user->data()->username);?>"><?php echo escape($user->data()->username);?></a></p>
@@ -25,16 +26,16 @@ if($user->isLoggedIn()) {
             <li><a href="logout.php">Log Out</a></li>
         </ul>
         <form action="purchase.php" method="POST"><input type="hidden" name="planId" value="1"/><input type="hidden" name="regionId" value="1"/><input type="hidden" name="token" value="<?php echo $token ?>"/><button type="submit">Purchase Plan</button><br/></form>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Plan</th>
-                    <th scope="col">Expiry</th>
-                    <th scope="col">IP</th>
-                    <th scope="col">Port</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Plan</th>
+                <th scope="col">Expiry</th>
+                <th scope="col">IP</th>
+                <th scope="col">Port</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
     <?php
     $service = new Service();
     $services = $service->findAll($user->data()->id);

@@ -3,7 +3,7 @@
 function generateRandomString($length = 10, $numbers = false) {
     $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     if($numbers) {
-        $characters += '1234567890';
+        $characters .= '1234567890';
     }
     $charactersLength = strlen($characters);
     $randomString = '';
