@@ -17,17 +17,7 @@ class Service {
         }
     }
 
-    public function find($id)
-    {
-        $data = $this->_db->get('services', array('id', '=', $id));
-        if($data->count()) {
-            $this->_data = $data->first();
-            retrieveConfig();
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 
     private function retrieveConfig()
     {
@@ -50,6 +40,23 @@ class Service {
         return $services;
     }
 
+    public function find($id)
+    {
+        if(is_numeric($id))
+        {
+            $data = $this->_db->get('services', array('id', '=', $id));
+        } else {
+            $data = $this->_db->get('services', array('service_id', '=', $id));
+        }
+        if($data->count()) {
+            $this->_data = $data->first();
+            $this->retrieveConfig();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function create($plan_id, $user_id, $stripe_id, $game_id, $region_id) {
         $machine_id = Machine::getLeastUsedMachine($region_id);
         $datetime = new DateTime("+1 month");
@@ -70,8 +77,10 @@ class Service {
         if(!$result) {
             print_r($this->_db->errorInfo());
         } else {
-            Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan1 20971520 ".$service_password." ".$port);
             $serviceId = $this->_db->first()->id;
+            Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan1 20971520 ".$service_password." ".$port);
+            
+            
             $result = $this->_db->insert('service_configurations', array(
                 'service_id' => $serviceId
             ));

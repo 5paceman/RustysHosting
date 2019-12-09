@@ -22,6 +22,16 @@ class Validate {
                                 $this->addError("{$item} must be a minimum of {$rule_value} characters.");
                             }
                         break;
+                        case 'minNum':
+                            if($value < $rule_value) {
+                                $this->addError("{$item} must be a minimum of {$rule_value}.");
+                            }
+                        break;
+                        case 'maxNum':
+                            if($value > $rule_value) {
+                                $this->addError("{$item} must be a maximum of {$rule_value}.");
+                            }
+                        break;
                         case 'max':
                             if(strlen($value) > $rule_value) {
                                 $this->addError("{$item} must be a minimum of {$rule_value} characters.");
@@ -48,6 +58,11 @@ class Validate {
                             $check = $this->_db->get($rule_value, array($item, '=', $value));
                             if($check->count()) {
                                 $this->addError("{$item} already exists.");
+                            }
+                        break;
+                        case 'url':
+                            if(!filter_var($value, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)) {
+                                $this->addError("You must enter a valid URL.");
                             }
                         break;
                     }

@@ -6,7 +6,7 @@ $user = new User();
 if(Input::exists() && $user->isLoggedIn()) {
     if(Token::check(Input::get('token'))) {
         $validate = new Validate();
-        $validation = $validate->check(array(
+        $validation = $validate->check($_POST, array(
             'passwordCurrent' => array(
                 'required' => true,
                 'min' => 6

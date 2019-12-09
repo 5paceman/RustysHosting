@@ -18,6 +18,7 @@ if(!$user->isLoggedIn())
   <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/manage.css" rel="stylesheet" type="text/css">
   <link href="css/rustyshosting.webflow.css" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"]  }});</script>
@@ -52,16 +53,16 @@ if(!$user->isLoggedIn())
           </form>
       </div>
       <div class="services">
-        <h3 class="heading-10">Services</h3>
-        <table class="table">
+        <h3 class="heading-10">Servers</h3>
+        <table class="serviceTable">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Plan</th>
-                <th scope="col">Expiry</th>
+                <th scope="col">Service ID</th>
                 <th scope="col">IP</th>
                 <th scope="col">Port</th>
-                <th scope="col">Status</th>
-                <th scope="col">Service ID</th>
+                <th scope="col">Plan</th>
+                <th scope="col">Expiry</th>
+                <th scope="col">Billing</th>
             </tr>
         </thead>
     <?php
@@ -71,19 +72,19 @@ if(!$user->isLoggedIn())
     foreach($services as $user_service) {
         ?>
         <tr>
-            <td><?php echo $user_service->plan(); ?></td>
-            <td><?php echo $user_service->expiry(); ?></td>
+            <td><a style="color: black; text-decoration: none;" href="manage.php?serviceId=<?php echo $user_service->data()->service_id; ?>"><span class="list-icon"> </span><?php echo $user_service->data()->service_id;?></a></td>
             <td><?php echo $user_service->ip(); ?></td>
             <td><?php echo $user_service->port(); ?></td>
+            <td><?php echo $user_service->plan(); ?></td>
+            <td><?php echo $user_service->expiry(); ?></td>
             <?php
             $time = strtotime($user_service->expiry());
             if($time < time()) {
-                echo '<td><form action="purchase.php" method="POST"><input type="hidden" name="planId" value="1"/><input type="hidden" name="regionId" value="1"/><input type="hidden" name="token" value="'.$token.'"/><button type="submit">Pay</button><br/></form></td>';
+                echo '<td class="buttons"><form action="purchase.php" method="POST"><input type="hidden" name="planId" value="1"/><input type="hidden" name="regionId" value="1"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="submit-button-4 w-button" type="submit" value="Pay"><br/></form></td>';
             } elseif($time > time()) {
-                echo '<td><form action="updatesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><button type="submit">Billing</button><br/></form><form action="deletesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><button type="submit">Cancel</button><br/></form></td>';
+                echo '<td class="buttons"><form action="updatesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="submit-button-4 w-button" type="submit" value="Update"><br/></form><form action="deletesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="submit-button-4 w-button" type="submit" value="Cancel"><br/></form></td>';
             }
             ?>
-            <td><a href="manage.php?serviceId=<?php echo $user_service->data()->service_id; ?>"><?php echo $user_service->data()->service_id;?></a></td>
         </tr>
         <?php
     }

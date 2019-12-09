@@ -47,6 +47,7 @@ if($user->isLoggedIn())
     <meta content="Webflow" name="generator">
     <link href="css/normalize.css" rel="stylesheet" type="text/css">
     <link href="css/webflow.css" rel="stylesheet" type="text/css">
+    
     <link href="css/rustyshosting.webflow.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -56,52 +57,14 @@ if($user->isLoggedIn())
             }
         });
     </script>
-    <script>
-            var websocket = null;
-
-            function connect() {
-                websocket = new WebSocket("ws://<?php echo $service->ip().":".($service->port() + 1)."/".$service->data()->service_password; ?>");
-                websocket.onmessage = onMessage;
-            }
-
-            function onMessage(event) {
-                var textbox = document.getElementById("console");
-                console.log(event.data);
-                var data = JSON.parse(event.data);
-                textbox.value += data.Message;
-            }
-
-            function send()
-            {
-                var message = document.getElementById("command").value;
-                document.getElementById("command").value = "";
-                var packet = {
-                    Identifier: 1,
-                    Message: message,
-                    Name: "WebRcon"
-                };
-                websocket.send(JSON.stringify(packet));
-            }
-
-
-            function checkConnection() {
-                if(websocket != null)
-                {
-                    if(websocket.readyState  == WebSocket.OPEN)
-                    {
-                        document.getElementById("status").innerHTML = "Status: connected";
-                    } else if(websocket.readyState == WebSocket.CLOSED) {
-                        document.getElementById("status").innerHTML = "Status: disconnected";
-                    } else if (websocket.readyState == WebSocket.CONNECTING) {
-                        document.getElementById("status").innerHTML = "Status: connecting";
-                    }
-                }
-            }
-            
-            setInterval(checkConnection, 3000);
-        </script>
-        <script src="js/manage.js" type="text/javascript"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var serverIp = "<?php echo $service->ip(); ?>";
+        var serverID = "<?php echo $service->data()->service_id; ?>";
+        var serverPort = <?php echo ($service->port() + 1); ?>;
+        var serverPassword = "<?php echo $service->data()->service_password; ?>";
+        var wsString = "ws://" + serverIp + ":" + serverPort + "/" + serverPassword;
+    </script>
+        
     <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
     <script type="text/javascript">
         ! function(o, c) {
@@ -121,7 +84,7 @@ if($user->isLoggedIn())
             <h3 class="heading-8">Test</h3>
             <ul class="list-2">
                 <li data-w-id="61614472-444d-4a12-5406-bcf3d425552e" class="profile-li"><span class="list-icon"></span> Account Settings</li>
-                <li data-w-id="61614472-444d-4a12-5406-bcf3d4255532" class="profile-li"><span class="text-span-3 list-icon"> </span>Servers</li>
+                <a style="color: rgb(238, 225, 225); text-decoration: none;" href="profile.php"><li data-w-id="61614472-444d-4a12-5406-bcf3d4255532" class="profile-li"><span class="text-span-3 list-icon"> </span>Servers</li></a>
                 <li data-w-id="61614472-444d-4a12-5406-bcf3d4255536" class="profile-li"><span class="text-span-4"></span> <span class="text-span-5">Support</span></li>
                 <li data-w-id="61614472-444d-4a12-5406-bcf3d425553c" class="profile-li"><span class="text-span-4 list-icon"></span> <span class="text-span-5">FAQ</span></li>
             </ul>
@@ -146,27 +109,32 @@ if($user->isLoggedIn())
                     <div data-w-tab="Tab 1" class="tab-pane-tab-1 w-tab-pane w--tab-active">
                         <div class="w-richtext">
                             <h5>Information:</h5>
-                            <p>Service ID &amp; FTP Username:
+                            <p><b>Service ID &amp; FTP Username:</b>
                                 <?php echo $service->data()->service_id; ?>
                             </p>
-                            <p>FTP &amp; Rcon Password:
+                            <p><b>FTP &amp; Rcon Password:</b>
                                 <?php echo escape($service->data()->service_password); ?>
                             </p>
-                            <p>IP Address:
+                            <p><b>IP Address:</b>
                                 <?php echo $service->ip(); ?>
                             </p>
-                            <p>Status: </p>
-                            <p>Port:
+                            <p><b>Status:</b> <span id="serverStatus"><span/></p>
+                            <p><b>Port:</b>
                                 <?php echo $service->port(); ?>
                             </p>
-                            <p><strong>Server Log</strong>:</p>
                         </div>
-                        <div class="text-block"></div>
+                        <div class="server-button-group">
+                            <a data-command="start" data-w-id="5e7c759d-ffc8-5d5a-060e-18934b0754a0" style="background-color:rgb(205,65,43)" href="#" class="server-command server-buttons-left w-button"></a><a data-command="stop" data-w-id="6b6ecd9a-f155-eafe-39bb-15fd494f3466" style="background-color:rgb(205,65,43)" href="#" class="server-command server-buttons-middle w-button"></a><a data-command="restart" data-w-id="e771a266-a598-7038-e480-6b8a05788d88" style="background-color:rgb(205,65,43)" href="#" class="server-command server-buttons-right w-button"></a>
+                        </div>
+                        <div><strong>Server Log:</strong></div>
+                        <div class="server-logs"></div>
                     </div>
                     <div data-w-tab="Tab 4" class="tab-pane-tab-4 w-tab-pane">
-                      <form id="config-form" name="email-form-3" action="update-config.php">
+                      <div class="w-form"><form id="config-form" name="email-form-3" action="update-config.php" data-name="Email Form 3">
                           <label for="hostname">Hostname</label>
                           <input type="text" class="config-input w-input" name="hostname" value="<?php echo escape($service->config()->hostname); ?>" data-name="hostname" id="hostname">
+                          <label for="hostname-2">Server Description</label>
+                          <textarea data-name="description" maxlength="512" id="description" value="<?php echo $service->config()->description; ?>" name="description" class="textarea-2 w-input"></textarea>
                           <label for="maxplayers">Max Players</label>
                           <input type="number" class="text-field-5 w-input"  name="maxplayers" value="<?php echo $service->config()->max_players; ?>" data-name="maxplayers" id="maxplayers" required="">
                           <label for="worldsize">World Size</label>
@@ -175,40 +143,39 @@ if($user->isLoggedIn())
                           <input type="number" class="text-field-5 w-input"  name="seed" value="<?php echo $service->config()->seed; ?>" data-name="seed" id="seed" required="">
                           <label for="tickrate">Tick Rate</label>
                           <input type="number" class="text-field-5 w-input" name="tickrate" value="<?php echo $service->config()->tick_rate; ?>" data-name="tickrate" id="tickrate" required="">
-                          <input type="submit" value="Update" data-wait="Please wait..." class="submit-button-7 w-button">
-                      </form>
+                          <input type="hidden" value="<?php echo $service->data()->service_id; ?>" id="service_id" name="service_id">
+                          <label class="w-checkbox checkbox-field">
+        <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox <?php echo ($service->config()->global_chat === "1" ? "w--redirected-checked" : ""); ?>"></div>
+        <input type="checkbox" id="globalchat" name="globalchat" data-name="globalchat" <?php echo ($service->config()->global_chat === "1" ? "checked" : "");  ?> style="opacity:0;position:absolute;z-index:-1"><span for="globalchat" class="w-form-label"><strong class="bold-text">Global Chat</strong></span></label>
+                          <label for="headerimage">Header Image URL</label>
+                          <input type="text" class="config-input w-input" maxlength="256" value="<?php echo $service->config()->header_image; ?>" name="headerimage" data-name="headerimage" id="headerimage">
+                          <input type="submit" value="Update" class="submit-button-7 w-button">
+                      </form></div>
                     </div>
                     <div data-w-tab="Tab 2" class="tab-pane-tab-2 w-tab-pane">
                         <label id="status" for="console">Status: disconnected</label>
                         <textarea name="console" maxlength="5000" id="console" data-name="console" class="textarea w-input"></textarea>
                         <input type="text" class="text-field-4 w-input" maxlength="256" name="command" data-name="command" id="command">
-                        <input onclick="connect();" value="Connect" class="submit-button-6 w-button">
-                        <input onclick="send();" value="Send" class="submit-button-6 w-button">
+                        <input type="submit" onclick="connect();" value="Connect" class="submit-button-6 w-button">
+                        <input type="submit" onclick="send();" value="Send" class="submit-button-6 w-button">
                     </div>
                     <div data-w-tab="Tab 3" class="tab-pane-tab-3 w-tab-pane">
                         <div class="div-block-2">
                             <div class="grid-cell">
                                 <div class="w-form">
-                                    <form id="email-form" name="email-form" data-name="Email Form" class="form">
+                                    <form class="form">
                                         <label for="name" class="field-label">Install RustIO</label>
-                                        <input type="submit" value="Install" data-wait="Please wait..." class="submit-button-5 w-button">
+                                        <input type="submit" value="Install" data-wait="Please wait..." data-command="installrustio" class="server-command submit-button-5 w-button">
                                     </form>
-                                    <div class="w-form-done"></div>
-                                    <div class="w-form-fail">
-                                        <div>Oops! Something went wrong while submitting the form.</div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="grid-cell">
                                 <div class="w-form">
-                                    <form id="email-form" name="email-form" data-name="Email Form" class="form">
+                                    <form class="form">
                                         <label for="name" class="field-label">Update Rust &amp; Oxide</label>
-                                        <input type="submit" value="Install" data-wait="Please wait..." class="submit-button-5 w-button">
+                                        <input type="submit" value="Install" data-wait="Please wait..." data-command="update" class="server-command submit-button-5 w-button">
+                                        <label class="field-label">Please note this will immediately shutdown your server.</label>
                                     </form>
-                                    <div class="w-form-done"></div>
-                                    <div class="w-form-fail">
-                                        <div>Oops! Something went wrong while submitting the form.</div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -219,6 +186,7 @@ if($user->isLoggedIn())
     </div>
     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="js/webflow.js" type="text/javascript"></script>
+    <script src="js/manage.js" type="text/javascript"></script>
     <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 

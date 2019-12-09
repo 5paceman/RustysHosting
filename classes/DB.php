@@ -72,7 +72,7 @@ class DB {
         return $this->action('DELETE', $table, $where);
     }
 
-    public function update($table, $id, $fields) {
+    public function update($table, $id, $fields, $idField = 'id') {
         $set = '';
         $fieldCount = 1;
 
@@ -84,7 +84,7 @@ class DB {
             $fieldCount++;
         }
 
-        $sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
+        $sql = "UPDATE {$table} SET {$set} WHERE {$idField} = {$id}";
         if(!$this->query($sql, $fields)->error()) {
             return true;
         }
