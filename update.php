@@ -12,17 +12,26 @@ if(!$user->isLoggedIn()) {
                 'email' => array(
                     'email' => true,
                     'required' => true
+                ),
+                'firstname' => array(
+                    'required' => true,
+                    'min' => 1,
+                    'max' => 50
+                ),
+                'lastname' => array(
+                    'required' => true,
+                    'min' => 1,
+                    'max' => 50
                 )
             ));
 
             if($validation->passed()) {
                 try {
                     $user->update(array(
-                        'email' => Input::get('email')
+                        'email' => Input::get('email'),
+                        'firstname' => Input::get('firstname'),
+                        'lastname' => Input::get('lastname')
                     ));
-
-                    Session::flash('home', 'Your details have been updated.');
-                    Redirect::to('index.php');
                 } catch (Exception $e) {
                     die($e->getMessage());
                 }
@@ -36,10 +45,3 @@ if(!$user->isLoggedIn()) {
 }
 
 ?>
-
-<form action="" method="post">
-    <label for="email">Email</label>
-    <input type="text" name="email" value="<?php echo escape($user->data()->email); ?>">
-    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>"/><br/>
-    <input type="submit" value="Update">
-</form>

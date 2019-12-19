@@ -1,5 +1,8 @@
-$("#config-form").submit(function (e) {
-    e.preventDefault();
+$("#config-form").submit(ajaxForm);
+
+function ajaxForm(formEvent)
+{
+    formEvent.preventDefault();
 
     var form = $(this);
     var url = form.attr('action');
@@ -9,10 +12,10 @@ $("#config-form").submit(function (e) {
         url: url,
         data: form.serialize(),
         success: function(data) {
-            $("#config-form").after(data);
+            form.after(data);
         }
-    })
-});
+    });
+}
 
 $(".server-command").on('click touchend', function(e) {
     e.preventDefault();

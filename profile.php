@@ -18,7 +18,7 @@ if(!$user->isLoggedIn())
   <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="css/manage.css" rel="stylesheet" type="text/css">
+  <link href="css/profile.css" rel="stylesheet" type="text/css">
   <link href="css/rustyshosting.webflow.css" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"]  }});</script>
@@ -28,34 +28,34 @@ if(!$user->isLoggedIn())
   <link href="images/webclip.png" rel="apple-touch-icon">
 </head>
 <body class="body-3">
+  <div class="top-bar"><a href="index.php" class="link-block w-inline-block"><img src="images/logo.png" height="48" width="48" alt="" class="image"><h2 class="heading-12">Rusty&#x27;s Hosting</h2></a>
+    <div class="text-block-5"><span class="list-icon"></span><?php echo $user->data()->email; ?></div>
+  </div>
   <div class="profile-main">
     <div class="profile-sidebar">
-      <h1 class="heading-11"></h1>
-      <h3 class="heading-8"><?php echo $user->data()->firstname." ".$user->data()->lastname; ?></h3>
       <ul class="list-2">
-        <li data-w-id="8d79276c-960b-56b8-5a82-91417ae109c8" class="profile-li"><span class="list-icon"></span> Account Settings</li>
-        <li data-w-id="8d79276c-960b-56b8-5a82-91417ae109c9" class="profile-li"><span class="text-span-3 list-icon"> </span>Servers</li>
-        <li data-w-id="7f0d0736-e6ad-6de3-dcf2-85357cd59524" class="profile-li"><span class="text-span-4"></span> <span class="text-span-5">Support</span></li>
-        <li data-w-id="8d79276c-960b-56b8-5a82-91417ae109ca" class="profile-li"><span class="text-span-4 list-icon"></span> <span class="text-span-5">FAQ</span></li>
+        <li id="acc-settings-btn" data-w-id="8d79276c-960b-56b8-5a82-91417ae109c8" class="profile-li"><span class="list-icon"></span> Account Settings</li>
+        <li id="servers-btn" data-w-id="8d79276c-960b-56b8-5a82-91417ae109c9" class="profile-li"><span class="text-span-3 list-icon"> </span>Servers</li>
+        <li id="support-btn" data-w-id="7f0d0736-e6ad-6de3-dcf2-85357cd59524" class="profile-li"><span class="text-span-4"></span> <span class="text-span-5">Support</span></li>
+        <li id="faq-btn" data-w-id="8d79276c-960b-56b8-5a82-91417ae109ca" class="profile-li"><span class="text-span-4 list-icon"></span> <span class="text-span-5">FAQ</span></li>
       </ul>
     </div>
     <div class="profile-content">
       <div class="account-settings">
         <h3 class="heading-9">Account Settings</h3>
-        <form id="email-form" name="email-form" data-name="Email Form">
-            <label for="Firstname">First Name</label>
-            <input type="text" class="settings-text-input w-input" maxlength="256" name="Firstname" data-name="Firstname" id="Firstname" value="<?php echo $user->data()->firstname; ?>">
-            <label for="lastname">Last Name</label>
-            <input type="text" maxlength="256" name="lastname" data-name="lastname" id="lastname" value="<?php echo $user->data()->lastname; ?>" class="settings-text-input w-input">
-            <label for="email">Email</label>
-            <input type="email" maxlength="256" name="email" data-name="email" id="email" value="<?php echo $user->data()->email; ?>" class="settings-text-input w-input">
-            <input type="submit" value="Update" class="submit-button-3 w-button">
-          </form>
+        <div class="info-form">
+          <h4 class="heading-13">Info</h4>
+          <form id="account-settings" method="POST" action="update.php" name="account-settings" data-name="account-settings"><label for="Firstname">First Name</label><input type="text" class="settings-text-input w-input" maxlength="256" name="Firstname" data-name="Firstname" id="Firstname"><label for="lastname">Last Name</label><input type="text" maxlength="256" name="lastname" data-name="lastname" id="lastname" class="settings-text-input w-input"><label for="email">Email</label><input type="email" maxlength="256" name="email" data-name="email" id="email" class="settings-text-input w-input"><input type="submit" value="Update" data-wait="Please wait..." class="submit-button-3 w-button"></form>
+        </div>
+        <div class="password-form">
+          <h4 class="heading-13">Update Password</h4>
+          <form id="update-password" method="POST" action="updatepassword.php" name="update-password" data-name="update-password"><label for="current-password">Current Password</label><input type="password" class="settings-text-input w-input" maxlength="256" name="current-password" data-name="current-password" id="current-password"><label for="new-password">New Password</label><input type="password" maxlength="256" name="new-password" data-name="new-password" id="new-password" class="settings-text-input w-input"><label for="repeat-password">Repeat Password</label><input type="password" maxlength="256" name="repeat-password" data-name="repeat-password" id="repeat-password" class="settings-text-input w-input"><input type="submit" value="Update" data-wait="Please wait..." class="submit-button-3 w-button"></form>
+        </div>
       </div>
       <div class="services">
         <h3 class="heading-10">Servers</h3>
         <table class="serviceTable">
-        <thead class="thead-dark">
+        <thead>
             <tr>
                 <th scope="col">Service ID</th>
                 <th scope="col">IP</th>
@@ -76,13 +76,15 @@ if(!$user->isLoggedIn())
             <td><?php echo $user_service->ip(); ?></td>
             <td><?php echo $user_service->port(); ?></td>
             <td><?php echo $user_service->plan(); ?></td>
-            <td><?php echo $user_service->expiry(); ?></td>
             <?php
             $time = strtotime($user_service->expiry());
+
+            echo '<td>'.date("jS F Y h:ia", $time).'</td>';
+
             if($time < time()) {
-                echo '<td class="buttons"><form action="purchase.php" method="POST"><input type="hidden" name="planId" value="1"/><input type="hidden" name="regionId" value="1"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="submit-button-4 w-button" type="submit" value="Pay"><br/></form></td>';
+                echo '<td><form action="purchase.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="planId" value="'.$user_service->data()->plan_id.'"/><input type="hidden" name="regionId" value="'.$user_service->data()->region_id.'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Pay"><br/></form></td>';
             } elseif($time > time()) {
-                echo '<td class="buttons"><form action="updatesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="submit-button-4 w-button" type="submit" value="Update"><br/></form><form action="deletesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="submit-button-4 w-button" type="submit" value="Cancel"><br/></form></td>';
+                echo '<td><form action="updatesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Update"><br/></form><form action="deletesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Cancel"><br/></form></td>';
             }
             ?>
         </tr>
@@ -143,6 +145,7 @@ if(!$user->isLoggedIn())
   </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
+  <script src="js/profile.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 </html>

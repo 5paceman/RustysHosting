@@ -17,8 +17,6 @@ class Service {
         }
     }
 
-
-
     private function retrieveConfig()
     {
         $service_config = $this->_db->get('service_configurations', array('service_id', '=', $this->id()));
@@ -26,6 +24,11 @@ class Service {
         {
             $this->_serviceConfiguration = $service_config->first();
         }
+    }
+
+    public function exists()
+    {
+        return (isset($this->_data));
     }
 
     public function findAll($user_id) {

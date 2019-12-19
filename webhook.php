@@ -40,7 +40,7 @@ function handleInvoicePaymentSucceeded($invoice)
         $plans = $db->get('services', array('stripe_id', '=', $subscription_id));
         if($plans->count())
         {
-            $datetime = new DateTime("+1 month");
+            $datetime = new DateTime("+1 month +2 day");
             $expiry = $datetime->format('Y-m-d H:i:s');
             $result = $db->update('services', $plans->first()->id, array(
                 'expiry' => $expiry
@@ -67,8 +67,22 @@ function handleCheckoutSessionSucceeded($checkout) {
             $plan_id = $subscription->items->data[0]->plan->id;
             $plans = $db->get('plans', array('stripe_id', '=', $plan_id));
             if($plans->count()) {
-                $service = new Service();
-                $service->create($plans->first()->id, $user->id, $subscription->id, 1, $subscription->metadata->region_id);
+                if(isset($subscription->metadata->service_id))
+                {
+                    $service = new Service($subscription->metadata->service_id, null);
+                    if($service->exists())
+                    {
+                        $datetime = new DateTime("+1 month +2 day");
+                        $expiry = $datetime->format('Y-m-d H:i:s');
+                        $result = $db->update('services', $subscription->metadata->service_id, array(
+                            'expiry' => $expiry,
+                            'stripe_id' => $subscription->id
+                        ));
+                    }
+                } else {
+                    $service = new Service();
+                    $service->create($plans->first()->id, $user->id, $subscription->id, 1, $subscription->metadata->region_id);
+                }   
                 if(empty($user->stripe_id)) {
                     $db->update('users', $user->id, $checkout->customer);
                 }

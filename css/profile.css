@@ -1,0 +1,31 @@
+table.serviceTable {
+  background-color: #FFFFFF;
+  width: 80%;
+  text-align: left;
+  border-collapse: collapse;
+  margin: auto;
+}
+table.serviceTable td, table.serviceTable th {
+  padding: 6px 6px;
+}
+table.serviceTable tbody td {
+  font-size: 15px;
+  border-top: 1px solid #DDD
+}
+table.serviceTable tr:nth-child(even) {
+  background: #B0F5F5;
+}
+table.serviceTable thead {
+  background: #24272C;
+}
+table.serviceTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.service-buttons {
+  margin-bottom: 2px;
+  margin-left: auto;
+  margin-right: auto;
+}

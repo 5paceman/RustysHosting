@@ -15,6 +15,7 @@ if(Input::exists() && $user->isLoggedIn()) {
                   'metadata' => [
                     'user_id' => $user->data()->id,
                     'region_id' => Input::get('regionId'),
+                    'service_id'  => Input::get('serviceId')
                   ],
                   'items' => [[
                     'plan' => $plan->first()->stripe_id,

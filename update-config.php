@@ -64,7 +64,7 @@ if(!$user->isLoggedIn()) {
                     ), 'service_id');
                     if($result)
                     {
-                        Redis::getInstance()->putJobToMachine($service->data()->machine_id, "UpdateConfig.sh ".Input::get('service_id')." \"".Input::get('hostname')."\""." ".Input::get('worldsize')." ".Input::get('seed')." ".Input::get('tickrate')." ".Input::get('maxplayers')." \"".Input::get('description')."\" ".Input::get('headerimage')." ".((Input::get('globalchat') === 'on') ? "\"true\"" : "\"false\""));
+                        Redis::getInstance()->putJobToMachine($service->data()->machine_id, "UpdateConfig.sh \"".Input::get('service_id')."\" \"".Input::get('hostname')."\""." \"".Input::get('worldsize')."\" \"".Input::get('seed')."\" \"".Input::get('tickrate')."\" \"".Input::get('maxplayers')."\" \"".Input::get('description')."\" \"".Input::get('headerimage')."\" ".((Input::get('globalchat') === 'on') ? "\"true\"" : "\"false\""));
                         echo 'Updated.';
                     } else {
                         echo 'Problem updating settings, please try again';

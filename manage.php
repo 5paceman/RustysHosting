@@ -78,15 +78,16 @@ if($user->isLoggedIn())
 </head>
 
 <body class="body-4">
+    <div class="top-bar"><a href="index.php" class="link-block w-inline-block"><img src="images/logo.png" height="48" width="48" alt="" class="image"><h2 class="heading-12">Rusty&#x27;s Hosting</h2></a>
+        <div class="text-block-5"><span class="list-icon"></span><?php echo $user->data()->email; ?></div>
+    </div>
     <div class="profile-main">
         <div class="profile-sidebar">
-            <h1 class="heading-11"></h1>
-            <h3 class="heading-8">Test</h3>
             <ul class="list-2">
-                <li data-w-id="61614472-444d-4a12-5406-bcf3d425552e" class="profile-li"><span class="list-icon"></span> Account Settings</li>
-                <a style="color: rgb(238, 225, 225); text-decoration: none;" href="profile.php"><li data-w-id="61614472-444d-4a12-5406-bcf3d4255532" class="profile-li"><span class="text-span-3 list-icon"> </span>Servers</li></a>
-                <li data-w-id="61614472-444d-4a12-5406-bcf3d4255536" class="profile-li"><span class="text-span-4"></span> <span class="text-span-5">Support</span></li>
-                <li data-w-id="61614472-444d-4a12-5406-bcf3d425553c" class="profile-li"><span class="text-span-4 list-icon"></span> <span class="text-span-5">FAQ</span></li>
+                <a style="color: rgb(238, 225, 225); text-decoration: none;" href="profile.php#accountsettings"><li data-w-id="61614472-444d-4a12-5406-bcf3d425552e" class="profile-li"><span class="list-icon"></span> Account Settings</li></a>
+                <a style="color: rgb(238, 225, 225); text-decoration: none;" href="profile.php#servers"><li data-w-id="61614472-444d-4a12-5406-bcf3d4255532" class="profile-li"><span class="text-span-3 list-icon"> </span>Servers</li></a>
+                <a style="color: rgb(238, 225, 225); text-decoration: none;" href="profile.php#support"><li data-w-id="61614472-444d-4a12-5406-bcf3d4255536" class="profile-li"><span class="text-span-4"></span> <span class="text-span-5">Support</span></li></a>
+                <a style="color: rgb(238, 225, 225); text-decoration: none;" href="profile.php#faq"><li data-w-id="61614472-444d-4a12-5406-bcf3d425553c" class="profile-li"><span class="text-span-4 list-icon"></span> <span class="text-span-5">FAQ</span></li></a>
             </ul>
         </div>
         <div class="profile-content">
@@ -118,10 +119,10 @@ if($user->isLoggedIn())
                             <p><b>IP Address:</b>
                                 <?php echo $service->ip(); ?>
                             </p>
-                            <p><b>Status:</b> <span id="serverStatus"><span/></p>
                             <p><b>Port:</b>
                                 <?php echo $service->port(); ?>
                             </p>
+                            <p><b>Status:</b> <span id="serverStatus"><span/></p>
                         </div>
                         <div class="server-button-group">
                             <a data-command="start" data-w-id="5e7c759d-ffc8-5d5a-060e-18934b0754a0" style="background-color:rgb(205,65,43)" href="#" class="server-command server-buttons-left w-button"></a><a data-command="stop" data-w-id="6b6ecd9a-f155-eafe-39bb-15fd494f3466" style="background-color:rgb(205,65,43)" href="#" class="server-command server-buttons-middle w-button"></a><a data-command="restart" data-w-id="e771a266-a598-7038-e480-6b8a05788d88" style="background-color:rgb(205,65,43)" href="#" class="server-command server-buttons-right w-button"></a>
