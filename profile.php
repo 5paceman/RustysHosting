@@ -82,7 +82,7 @@ if(!$user->isLoggedIn())
             echo '<td>'.date("jS F Y h:ia", $time).'</td>';
 
             if($time < time()) {
-                echo '<td><form action="purchase.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="planId" value="'.$user_service->data()->plan_id.'"/><input type="hidden" name="regionId" value="'.$user_service->data()->region_id.'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Pay"><br/></form></td>';
+                echo '<td><form action="purchase.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="planId" value="'.$user_service->data()->plan_id.'"/><input type="hidden" name="regionId" value="1"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Pay"><br/></form></td>';
             } elseif($time > time()) {
                 echo '<td><form action="updatesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Update"><br/></form><form action="deletesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Cancel"><br/></form></td>';
             }

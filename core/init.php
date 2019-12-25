@@ -23,9 +23,16 @@ $GLOBALS['config'] = array (
         'public_api_key' => 'pk_test_ulFsHot2IXRDChrayq0u7Jrt001mkBXhBx',
         'secret_api_key' => 'sk_test_seqxgzLOv4mFd55rY56dLNLP00evpvrV3T',
         'signing_secret' => 'whsec_r91TSCA0wATHbCT0g292SHed68gT0Zvo',
-        'success_page' => 'http://2532c80c.ngrok.io/profile.php',
-        'cancel_page' => 'http://2532c80c.ngrok.io'
+        'success_page' => 'http://d42e0e3a.ngrok.io/profile.php',
+        'cancel_page' => 'http://d42e0e3a.ngrok.io'
     ),
+    'email' => array(
+        'smtp_host' => "127.0.0.1",
+        'smtp_port' => '25',
+        'username' => 'test',
+        'password' => 'test',
+        'email' => 'noreply@rustyshosting.io'
+    )
     'redis' => array(
         'ip' => '127.0.0.1',
         'port' => '6379'
