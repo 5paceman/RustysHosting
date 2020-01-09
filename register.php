@@ -26,6 +26,12 @@ if(Input::exists() && Token::check(Input::get('token'))) {
             'required' => true,
             'email' => true       
         ),
+        'Firstname' => array(
+            'required' => true
+        ),
+        'Lastname' => array(
+            'required' => true
+        )
     ));
 
     if($validation->passed()) {
@@ -39,11 +45,14 @@ if(Input::exists() && Token::check(Input::get('token'))) {
                 'salt' => $salt,
                 'email' => Input::get('email'),
                 'joined' => date('Y-m-d H:i:s'),
-                'group' => 1
+                'group' => 1,
+                'firstname' => Input::get('Firstname'),
+                'lastname' => Input::get('Lastname')
             ));
-
-            Session::flash('home', 'You have been registered and can now log in!');
-            Redirect::to('index.php');
+            Email::getInstance()->sendEmail(Input::get('email'), "New Registration", "new-account", array(
+                'name' => Input::get('firstname')
+            ));
+            Redirect::to('profile.php');
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -63,6 +72,10 @@ if(Input::exists() && Token::check(Input::get('token'))) {
     <input id="repeat_password" autocomplete="off" name="repeat_password" type="password" /><br/>
     <label for="email">Email<br/></label>
     <input id="email" autocomplete="off" name="email" type="email" value="<?php echo escape(Input::get('email')); ?>" /><br/>
+    <label for="Firstname">Firstname<br/></label>
+    <input id="Firstname" autocomplete="off" name="Firstname" type="Firstname" /><br/>
+    <label for="Lastname">Lastname<br/></label>
+    <input id="Lastname" autocomplete="off" name="Lastname" type="Lastname" /><br/>
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>"/><br/>
     <button type="submit">Submit</button>
 </form>

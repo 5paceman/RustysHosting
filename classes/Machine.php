@@ -17,6 +17,12 @@ class Machine {
         return $machine_id;
     }
 
+    public static function getIP($machine_id)
+    {
+        $machine = DB::getInstance()->get('machines', array('id', '=', $machine_id));
+        return $machine->results()->first()->ip;
+    }
+
     public static function getNextPort($game_id, $machine_id) {
         $game = DB::getInstance()->get('games', array('id', '=', $game_id));
         $highestPort = $game->first()->baseport - 1;

@@ -27,17 +27,20 @@ $GLOBALS['config'] = array (
         'cancel_page' => 'http://d42e0e3a.ngrok.io'
     ),
     'email' => array(
-        'smtp_host' => "127.0.0.1",
-        'smtp_port' => '25',
-        'username' => 'test',
-        'password' => 'test',
-        'email' => 'noreply@rustyshosting.io'
-    )
+        'smtp_host' => "smtp.office365.com",
+        'smtp_port' => '587',
+        'username' => 'tom@socialspring.co.uk',
+        'password' => 'Gandalf56332019',
+        'email' => 'tom@socialspring.co.uk',
+        'email_name' => 'Rustys Hosting'
+    ),
     'redis' => array(
         'ip' => '127.0.0.1',
         'port' => '6379'
     )
 );
+
+require_once 'vendor/autoload.php';
 
 spl_autoload_register(function ($class) {
     require_once 'classes/'.$class.'.php';
@@ -45,7 +48,7 @@ spl_autoload_register(function ($class) {
 
 require_once 'functions/sanitize.php';
 
-require_once 'vendor/autoload.php';
+
 
 if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))) {
     $hash = Cookie::get(Config::get('remember/cookie_name'));

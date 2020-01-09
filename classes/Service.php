@@ -78,7 +78,7 @@ class Service {
             'stripe_id' => $stripe_id
         ));
         if(!$result) {
-            print_r($this->_db->errorInfo());
+           // print_r($this->_db->errorInfo());
         } else {
             $serviceId = $this->_db->first()->id;
             Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan1 20971520 ".$service_password." ".$port);
@@ -86,6 +86,15 @@ class Service {
             
             $result = $this->_db->insert('service_configurations', array(
                 'service_id' => $serviceId
+            ));
+
+            $user = new User($user_id);
+            Email::getInstance()->sendEmail($user->data()->email, "New Service", "new-service", array(
+                'serviceid' => $service_id,
+                'servicepassword' => $service_password,
+                'ip' => Machine::getIP($machine_id),
+                'port' => $port,
+                'rcon' => ($port + 1)
             ));
         }
     }

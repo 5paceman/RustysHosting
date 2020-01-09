@@ -9,6 +9,14 @@ if(Session::exists('home')) {
     echo Session::flash('home');
 }
 
+if(Input::exists('get'))
+{
+    if(Input::get('test'))
+    {
+        Email::getInstance()->SendEmail("tom@socialspring.co.uk", "New User", "new-account", array('name' => 'Test'));
+        echo 'Test';
+    }
+}
 
 $user = new User();
 if($user->isLoggedIn()) {
@@ -25,6 +33,7 @@ if($user->isLoggedIn()) {
             <li><a href="changepassword.php">Change Password</a></li>
             <li><a href="logout.php">Log Out</a></li>
         </ul>
+        <a href="index.php?test=test">Test</a>
         <form action="purchase.php" method="POST"><input type="hidden" name="planId" value="1"/><input type="hidden" name="regionId" value="1"/><input type="hidden" name="token" value="<?php echo $token ?>"/><button type="submit">Purchase Plan</button><br/></form>
     <table class="table">
         <thead class="thead-dark">
