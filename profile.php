@@ -6,6 +6,8 @@ if(!$user->isLoggedIn())
 {
   Redirect::to('login.php');
 }
+
+$token = Token::generate();
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +55,23 @@ if(!$user->isLoggedIn())
         </div>
       </div>
       <div class="services">
+
         <h3 class="heading-10">Servers</h3>
+        <div class="form-block-5 w-form">
+          <form action="purchase.php" method="POST" class="form-2">
+            <h3 class="heading-17">New Server</h3>
+            <label for="regionId">Region</label>
+            <input type="hidden" name="planId" value="1"/>
+            <input type="hidden" name="token" value="<?php echo $token ?>"/>
+            <select id="regionId" name="regionId" data-name="region" class="w-select">
+              <option value="1">West Europe</option>
+              <option value="2">USA West</option>
+              <option value="3">East Europe</option>
+              <option value="4">USA East</option>
+            </select>
+            <input type="submit" value="Buy" class="submit-button-8 w-button">
+          </form>
+          </div>
         <table class="serviceTable">
         <thead>
             <tr>
@@ -68,7 +86,6 @@ if(!$user->isLoggedIn())
     <?php
     $service = new Service();
     $services = $service->findAll($user->data()->id);
-    $token = Token::generate();
     foreach($services as $user_service) {
         ?>
         <tr>

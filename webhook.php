@@ -94,10 +94,8 @@ function handleCheckoutSessionSucceeded($checkout) {
                 } else {
                     $service = new Service();
                     $service->create($plans->first()->id, $user->id, $subscription->id, 1, $subscription->metadata->region_id);
-                }   
-                if(empty($user->stripe_id)) {
-                    $db->update('users', $user->id, $checkout->customer);
                 }
+                $db->update('users', $user->id, $checkout->customer);   
             }
         }
     } else if ($checkout->mode === "setup") {

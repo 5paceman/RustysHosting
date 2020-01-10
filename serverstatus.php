@@ -14,11 +14,19 @@ if(!$user->isLoggedIn()) {
                     if(Input::get('action') === "ping")
                     {
                         $status = Redis::getInstance()->getJson("reporting:servers:status:$serviceID");
-                        echo ucfirst($status->running)." ($status->rustpid)";
+                        if($status)
+                        {
+                            echo ucfirst($status->running)." ($status->rustpid)";
+                        } else {
+                            echo 'Setting up...';
+                        }
                     } else if(Input::get('action') === "logs")
                     {
                         $status = Redis::getInstance()->getJson("reporting:servers:status:$serviceID");
-                        echo $status->log;
+                        if($status)
+                        {
+                            echo $status->log;
+                        }
                     }
                     
                 } else {

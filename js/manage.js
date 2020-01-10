@@ -119,9 +119,12 @@ function pingServer()
             {
                 $("#serverStatus").html(data);
                 $("#serverStatus").css({'color': '#a2964e'});
+            } else if(data.indexOf("Dead") > -1){
+                $("#serverStatus").html("Stopped");
+                $("#serverStatus").css({'color': '#812719'});
             } else {
                 $("#serverStatus").html(data);
-                $("#serverStatus").css({'color': '#812719'});
+                $("#serverStatus").css({'color': '#a2964e'});
             }
         },
         error: function() {
@@ -144,7 +147,6 @@ function updateServerLogs()
         },
         success: function(data) {
             $("#server-logs").html(data.replace());
-            console.log(data);
         }
     });
 }
