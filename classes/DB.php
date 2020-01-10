@@ -108,7 +108,7 @@ class DB {
         $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
 
         if(!$this->query($sql, $fields)->error()) {
-            $this->query("SELECT LAST_INSERT_ID();");
+        $this->query("SELECT LAST_INSERT_ID() from {$table}");
             return true;
         }
         return false;
