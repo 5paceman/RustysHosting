@@ -128,7 +128,7 @@ if($user->isLoggedIn())
                             <a data-command="start" data-w-id="5e7c759d-ffc8-5d5a-060e-18934b0754a0" style="background-color:rgb(205,65,43)" href="#" class="server-command server-buttons-left w-button"></a><a data-command="stop" data-w-id="6b6ecd9a-f155-eafe-39bb-15fd494f3466" style="background-color:rgb(205,65,43)" href="#" class="server-command server-buttons-middle w-button"></a><a data-command="restart" data-w-id="e771a266-a598-7038-e480-6b8a05788d88" style="background-color:rgb(205,65,43)" href="#" class="server-command server-buttons-right w-button"></a>
                         </div>
                         <div><strong>Server Log:</strong></div>
-                        <div class="server-logs"></div>
+                        <div class="server-logs"><p style="white-space: pre-wrap;" id="server-logs"></p></div>
                     </div>
                     <div data-w-tab="Tab 4" class="tab-pane-tab-4 w-tab-pane">
                       <div class="w-form"><form id="config-form" name="email-form-3" action="update-config.php" data-name="Email Form 3">

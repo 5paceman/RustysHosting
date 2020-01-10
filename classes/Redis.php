@@ -30,8 +30,11 @@ class Redis {
         $this->putJob($command, "brooce:queue:".$MachineName.":pending", $options);
     }
 
-    //brooce:counter
-    //brooce:jobs:jobnum:log
+    public function getJson($key)
+    {
+        $value = $this->_predis->get($key);
+        return json_decode($value);
+    }
 
     public function putJob($command, $queue, $options = array())
     {

@@ -106,20 +106,21 @@ function pingServer()
 {
     $.ajax({
         type: "POST",
-        url: 'ping.php',
+        url: 'serverstatus.php',
         dataType: 'html',
         timeout: 5000,
         data: {
-            'service_id' : serverID
+            'service_id' : serverID,
+            'action' : "ping"
         },
         success: function(data) {
 
             if(data.indexOf("Running") > -1)
             {
-                $("#serverStatus").html("Running");
+                $("#serverStatus").html(data);
                 $("#serverStatus").css({'color': '#a2964e'});
             } else {
-                $("#serverStatus").html("Stopped");
+                $("#serverStatus").html(data);
                 $("#serverStatus").css({'color': '#812719'});
             }
         },
@@ -127,10 +128,30 @@ function pingServer()
             $("#serverStatus").html("Stopped");
             $("#serverStatus").css({'color': '#812719'});
         }
-    })
+    });
+}
+
+function updateServerLogs()
+{
+    $.ajax({
+        type: "POST",
+        url: 'serverstatus.php',
+        dataType: 'html',
+        timeout: 5000,
+        data: {
+            'service_id' : serverID,
+            'action' : "logs"
+        },
+        success: function(data) {
+            $("#server-logs").html(data.replace());
+            console.log(data);
+        }
+    });
 }
 
 pingServer();
+updateServerLogs();
 
+setInterval(updateServerLogs, 300000);
 setInterval(pingServer, 30000);
 setInterval(checkConnection, 3000);

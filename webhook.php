@@ -51,6 +51,18 @@ function handleInvoicePaymentSucceeded($invoice)
             }
         }
     }
+    if(isset($invoice->invoice_pdf)) {
+        $name = "Invoice".($invoice->created).".pdf";
+        file_put_contents('/var/www/invoices/'.$name, fopen($invoice->invoice_pdf, 'r'));
+        $user = new User($invoice->lines->data[0]->metadata->user_id);
+        Email::getInstance()->sendEmailWithAttachments($user->data()->email, "Invoice", "invoice", array(
+            'name' => $user->data()->firstname,
+            'invoice_url' => $invoice->hosted_invoice_url
+        ), array(
+            '/var/www/invoices/'.$name
+        ));
+        unlink('/var/www/invoices/'.$name);
+    }
 }
 
 function handleCheckoutSessionSucceeded($checkout) {
