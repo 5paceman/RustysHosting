@@ -38,7 +38,6 @@ if(!$user->isLoggedIn()) {
                 'maxNum' => 25
             ),
             'headerimage' => array(
-                'required' => true,
                 'max' => 256
             ),
             'description' => array(
@@ -59,7 +58,7 @@ if(!$user->isLoggedIn()) {
                         'tick_rate' => Input::get('tickrate'),
                         'max_players' => Input::get('maxplayers'),
                         'global_chat' => ((Input::get('globalchat') === 'on') ? 1 : 0),
-                        'header_image' => Input::get('headerimage'),
+                        'header_image' => ((null !== Input::get('headerimage')) ? Input::get('headerimage') : ""),
                         'description' => Input::get('description'),
                     ), 'service_id');
                     if($result)

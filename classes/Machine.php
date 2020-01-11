@@ -20,7 +20,7 @@ class Machine {
     public static function getIP($machine_id)
     {
         $machine = DB::getInstance()->get('machines', array('id', '=', $machine_id));
-        return $machine->results()->first()->ip;
+        return $machine->first()->ip;
     }
 
     public static function getNextPort($game_id, $machine_id) {

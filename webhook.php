@@ -95,7 +95,9 @@ function handleCheckoutSessionSucceeded($checkout) {
                     $service = new Service();
                     $service->create($plans->first()->id, $user->id, $subscription->id, 1, $subscription->metadata->region_id);
                 }
-                $db->update('users', $user->id, $checkout->customer);   
+                $db->update('users', $user->id, array(
+                    'stripe_id' => $checkout->customer
+                ));   
             }
         }
     } else if ($checkout->mode === "setup") {

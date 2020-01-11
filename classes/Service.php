@@ -80,6 +80,7 @@ class Service {
         if(!$result) {
            // print_r($this->_db->errorInfo());
         } else {
+            $this->_db->getLastInsertedResults("services");
             $serviceId = $this->_db->first()->id;
             Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan1 20971520 ".$service_password." ".$port);
             

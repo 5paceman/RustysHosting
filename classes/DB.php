@@ -108,10 +108,14 @@ class DB {
         $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
 
         if(!$this->query($sql, $fields)->error()) {
-        $this->query("SELECT LAST_INSERT_ID() from {$table}");
             return true;
         }
         return false;
+    }
+
+    public function getLastInsertedResults($table, $pkey = "id")
+    {
+        return $this->query("SELECT * FROM `{$table}` WHERE `id`=LAST_INSERT_ID();");
     }
 
     public function errorInfo()
