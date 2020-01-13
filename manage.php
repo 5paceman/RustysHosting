@@ -102,6 +102,9 @@ if($user->isLoggedIn())
                     <a data-w-tab="Tab 2" class="tab-button w-inline-block w-tab-link">
                         <div>Console</div>
                     </a>
+                    <a data-w-tab="Tab 5" class="tab-button w-inline-block w-tab-link">
+                        <div>Backups</div>
+                     </a>
                     <a data-w-tab="Tab 3" class="tab-button w-inline-block w-tab-link">
                         <div>Tools</div>
                     </a>
@@ -180,6 +183,36 @@ if($user->isLoggedIn())
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div data-w-tab="Tab 5" class="tab-pane-tab-5 w-tab-pane">
+                        <p><b>Notice:</b> Please note that restoring a backup will immediately stop your server.</p>
+                        <table class="serviceTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Restore</th>
+                                    <th scope="col">Download</th>
+                                </tr>
+                            </thead>
+                            <?php
+                                $backups = DB::getInstance()->get('backups', array("service", "=", $service->id()));
+                                if($backups->count())
+                                {
+                                    foreach($backups->results() as $result)
+                                    {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $result->date; ?></td>
+                                            <td><?php echo $result->path; ?></td>
+                                            <td><form action="servicecommand.php" method="POST"><input type="hidden" name="service_id" value="<?php echo $result->service; ?>"><input type="hidden" name="backupID" value="<? echo $result->id; ?>"><input style="margin-left: 5px;" data-command="restore" class="server-command service-buttons submit-button-4 w-button" type="submit" value="Restore"><br/></form></td>
+                                            <td><form action="download.php" method="POST"><input type="hidden" name="backupID" value="<? echo $result->id; ?>"><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Download"><br/></form></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                            ?>
+                        </table>
                     </div>
                 </div>
             </div>
