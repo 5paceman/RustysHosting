@@ -17,6 +17,28 @@
   grid-row-start: 1;
 }
 
+#progress-bar {
+  width: 300px;
+  background: #cccccc;
+  margin: auto;
+  margin-top: 4px;
+  position: relative;
+}
+
+#progress-bar-percentage {
+  background: #812719;
+  color: #000;
+  text-align: center;
+  height: 20px;
+}
+
+#progress-bar-percentage span {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
 .w-checkbox::after {
   content: ' ';
   display: table;

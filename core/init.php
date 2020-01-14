@@ -37,6 +37,12 @@ $GLOBALS['config'] = array (
     'redis' => array(
         'ip' => '127.0.0.1',
         'port' => '6379'
+    ),
+    'backup' => array(
+        'backup_expiry' => '30',
+        'spaces_secret' => 'NEVnOA0WeovQLP1EAJ1IkYcsoaf/ZSlrnGnU9rZHezY',
+        'spaces_access' => 'JLT2L3FRCBA7ZQPUXH72',
+        'rustyshosting-eu' => 'fra1.digitaloceanspaces.com'
     )
 );
 

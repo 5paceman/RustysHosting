@@ -196,23 +196,41 @@ if($user->isLoggedIn())
                                 </tr>
                             </thead>
                             <?php
+
+                            function formatBytes($size, $precision = 1)
+                            {
+                                $base = log($size, 1024);
+                                $suffixes = array('', 'KB', 'MB', 'GB', 'TB');   
+                            
+                                return round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
+                            }
+                                $size = 0;
                                 $backups = DB::getInstance()->get('backups', array("service", "=", $service->id()));
                                 if($backups->count())
                                 {
+                                    
                                     foreach($backups->results() as $result)
                                     {
+                                        $size += $result->size;
                                         ?>
                                         <tr>
                                             <td><?php echo $result->date; ?></td>
                                             <td><?php echo $result->path; ?></td>
-                                            <td><form action="servicecommand.php" method="POST"><input type="hidden" name="service_id" value="<?php echo $result->service; ?>"><input type="hidden" name="backupID" value="<? echo $result->id; ?>"><input style="margin-left: 5px;" data-command="restore" class="server-command service-buttons submit-button-4 w-button" type="submit" value="Restore"><br/></form></td>
-                                            <td><form action="download.php" method="POST"><input type="hidden" name="backupID" value="<? echo $result->id; ?>"><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Download"><br/></form></td>
+                                            <td><form action="servicecommand.php" method="POST"><input type="hidden" name="service_id" value="<?php echo $result->service; ?>"><input type="hidden" name="backupID" value="<?php echo $result->id; ?>"><input style="margin-left: 5px;" data-command="restore" class="server-command service-buttons submit-button-4 w-button" type="submit" value="Restore"><br/></form></td>
+                                            <td><form action="download.php" method="POST"><input type="hidden" name="service_id" value="<?php echo $result->service; ?>"><input type="hidden" name="backupID" value="<?php echo $result->id; ?>"><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Download"><br/></form></td>
                                         </tr>
                                         <?php
                                     }
                                 }
+
+                                $max = $service->data()->backup_size;
+                                $percentage = ceil(($size / $max) *  100);
                             ?>
                         </table>
+                        <p style="text-align: center; margin-top: 10px;">Backup Usage: </p>
+                        <div id="progress-bar" class="all-rounded">
+                            <div id="progress-bar-percentage" class="all-rounded" style="width: <?php echo $percentage; ?>%"><span><?php echo formatBytes($size).'/'.formatBytes($max); ?></span></div>
+                        </div>
                     </div>
                 </div>
             </div>
