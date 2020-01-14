@@ -1,6 +1,11 @@
 <?php
 require_once 'core/init.php';
 
+define('AKEEBAENGINE', 1);
+
+use Akeeba\Engine\Postproc\Connector\S3v4\Configuration;
+use Akeeba\Engine\Postproc\Connector\S3v4\Connector;
+
 $user = new User();
 if(!$user->isLoggedIn()) {
     echo 'You need to be logged in.';
@@ -53,7 +58,7 @@ if(!$user->isLoggedIn()) {
                             ));
                         break;
                         case 'restore':
-                            $backup = DB::getInstance()->get('backup', array("id", "=", Input::get('backupID')));
+                            $backup = DB::getInstance()->get('backups', array("id", "=", Input::get('backupID')));
                             if($backup->count())
                             {
                                 if($backup->first()->service === $service->id())
@@ -67,7 +72,25 @@ if(!$user->isLoggedIn()) {
                                 }
                             }
                         break;
+                        case 'deletebackup':
+                            $backup = DB::getInstance()->get('backups', array("id", "=", Input::get('backupID')));
+                            
+                            if($backup->count())
+                            {
+                                if($backup->first()->service == $service->id())
+                                {
+                                    echo "Backup deleted.";
+                                    $space = $backup->first()->space;
+                                    $configuration = new Configuration(Config::get('backup/spaces_access'), Config::get('backup/spaces_secret'));
+                                    $configuration->setEndpoint(Config::get('backup/'.$space));
+                                    $connector = new Connector($configuration);
+                                    $connector->deleteObject($space, $backup->first()->path);
+                                    DB::getInstance()->delete('backups', array("id", "=", Input::get('backupID')));
+                                }
+                            }
+                        break;
                         default:
+                            var_dump($_POST);
                             echo 'Unknown command.';
                         break;
                     }

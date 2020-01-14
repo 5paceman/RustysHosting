@@ -193,6 +193,7 @@ if($user->isLoggedIn())
                                     <th scope="col">Name</th>
                                     <th scope="col">Restore</th>
                                     <th scope="col">Download</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                             </thead>
                             <?php
@@ -216,8 +217,9 @@ if($user->isLoggedIn())
                                         <tr>
                                             <td><?php echo $result->date; ?></td>
                                             <td><?php echo $result->path; ?></td>
-                                            <td><form action="servicecommand.php" method="POST"><input type="hidden" name="service_id" value="<?php echo $result->service; ?>"><input type="hidden" name="backupID" value="<?php echo $result->id; ?>"><input style="margin-left: 5px;" data-command="restore" class="server-command service-buttons submit-button-4 w-button" type="submit" value="Restore"><br/></form></td>
-                                            <td><form action="download.php" method="POST"><input type="hidden" name="service_id" value="<?php echo $result->service; ?>"><input type="hidden" name="backupID" value="<?php echo $result->id; ?>"><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Download"><br/></form></td>
+                                            <td><form id="restorebackup" action="servicecommand.php" method="POST"><input type="hidden" name="service_id" value="<?php echo $result->service; ?>"><input type="hidden" name="backupID" value="<?php echo $result->id; ?>"><input type="hidden" name="command" value="restore"><input style="margin-left: 5px;" class="text-span-3 service-buttons submit-button-4 w-button" type="submit" value=""><br/></form></td>
+                                            <td><form action="download.php" method="POST"><input type="hidden" name="service_id" value="<?php echo $result->service; ?>"><input type="hidden" name="backupID" value="<?php echo $result->id; ?>"><input style="margin-left: 5px;" class="text-span-3 service-buttons submit-button-4 w-button" type="submit" value=""><br/></form></td>
+                                            <td><form id="deletebackup" action="servicecommand.php" method="POST"><input type="hidden" name="service_id" value="<?php echo $result->service; ?>"><input type="hidden" name="backupID" value="<?php echo $result->id; ?>"><input type="hidden" name="command" value="deletebackup"><input style="margin-left: 5px;" class="text-span-3 service-buttons submit-button-4 w-button" type="submit" value=""><br/></form></td>
                                         </tr>
                                         <?php
                                     }
@@ -229,7 +231,7 @@ if($user->isLoggedIn())
                         </table>
                         <p style="text-align: center; margin-top: 10px;">Backup Usage: </p>
                         <div id="progress-bar" class="all-rounded">
-                            <div id="progress-bar-percentage" class="all-rounded" style="width: <?php echo $percentage; ?>%"><span><?php echo formatBytes($size).'/'.formatBytes($max); ?></span></div>
+                            <div id="progress-bar-percentage" class="all-rounded" style="width: <?php echo $percentage; ?>%"><span><?php echo (($size == 0) ? 0 : formatBytes($size)).'/'.formatBytes($max); ?></span></div>
                         </div>
                     </div>
                 </div>

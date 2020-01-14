@@ -1,4 +1,17 @@
 $("#config-form").submit(ajaxForm);
+$("#restorebackup").submit(backupForms);
+$("#deletebackup").submit(backupForms);
+
+function backupForms(data)
+{
+    if(window.confirm("Are you sure?"))
+    {
+        ajaxForm(data);
+        $(this).parent().parent().remove();
+    } else {
+        data.preventDefault();
+    }
+}
 
 function ajaxForm(formEvent)
 {
@@ -21,7 +34,7 @@ $(".server-command").on('click touchend', function(e) {
     e.preventDefault();
 
     sendServerCommand($(this).attr('data-command'));
-})
+});
 
 var websocket = null;
 

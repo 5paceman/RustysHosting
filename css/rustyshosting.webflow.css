@@ -1203,6 +1203,9 @@ table.serviceTable thead th {
 
 .tab-pane-tab-5 {
   padding: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #d5bebe;
 }
 
 @media (max-width: 991px) {
