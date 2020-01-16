@@ -58,6 +58,27 @@ class Email {
         $this->_PHPMailer->Send();
     }
 
+    public function sendEmailWithReplyTo($to, $subject, $template, $replyTo, $replyName, $variables = array())
+    {
+        $this->_PHPMailer->clearAddresses();
+        $this->_PHPMailer->clearAllRecipients();
+        $this->_PHPMailer->clearAttachments();
+        $this->_PHPMailer->AddEmbeddedImage('email_templates/header-email.png', 'header_logo');
+        $this->_PHPMailer->AddReplyTo($replyTo, $replyName);
+
+        $email = file_get_contents('email_templates/'.$template.'.html');
+        foreach($variables as $key => $value)
+        {
+            $email = str_replace('{'.$key.'}', $value, $email);
+        }
+
+        $this->_PHPMailer->AddAddress($to);
+        $this->_PHPMailer->Subject = $subject;
+        $this->_PHPMailer->MsgHTML($email);
+        $this->_PHPMailer->AltBody = strip_tags($email);
+        $this->_PHPMailer->Send();
+    }
+
     public function sendEmailWithAttachments($to, $subject, $template, $variables = array(), $attachments = array())
     {
         $this->_PHPMailer->clearAddresses();

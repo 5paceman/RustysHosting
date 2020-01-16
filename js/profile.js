@@ -15,6 +15,7 @@ if(url.indexOf("#accountsettings") > -1)
 
 $("#account-settings").submit(ajaxForm);
 $("#password-form").submit(ajaxForm);
+$("#support-form").submit(ajaxForm);
 
 function ajaxForm(formEvent)
 {

@@ -145,17 +145,30 @@ $token = Token::generate();
           <ul>
             <li><strong>High - </strong>24 hour response time, for support requests that need fixing ASAP such as unable to FTP or turn your server on</li>
             <li><strong>Medium - </strong>For requests that need looking at promptly but aren&#x27;t detrimental to service</li>
-            <li><strong>Low - </strong>For low level requests such as queries relating to plugins/server configuration</li>
+            <li><strong>Low - </strong>For low level requests such as queries relating to basic control panel features</li>
           </ul>
         </div>
-        <div class="form-block-4 w-form">
-          <form id="email-form-2" name="email-form-2" data-name="Email Form 2"><label for="serviceid">Service ID</label><input type="text" class="settings-text-input w-input" maxlength="256" name="serviceid" data-name="serviceid" id="serviceid" required=""><label for="serviceid-2">Urgency</label><select id="urgency" name="urgency" data-name="urgency" required="" class="w-select"><option value="Second">Low</option><option value="First">Medium</option><option value="">High</option></select><label for="description">Description</label><textarea data-name="description" maxlength="5000" id="description" name="description" required="" class="w-input"></textarea><input type="submit" value="Submit" data-wait="Please wait..." class="submit-button-4 w-button"></form>
-          <div class="w-form-done">
-            <div>Thank you! Your submission has been received!</div>
-          </div>
-          <div class="w-form-fail">
-            <div>Oops! Something went wrong while submitting the form.</div>
-          </div>
+        <div class="form-block-4">
+          <form id="support-form" action="support.php" method="POST">
+            <label for="serviceid">Service ID</label>
+            <select id="serviceid" name="serviceid" data-name="serviceid" required="" class="settings-text-input w-select">
+              <?php
+                foreach($services as $service)
+                {
+                  echo '<option value="'.$service->data()->service_id.'">'.$service->data()->service_id.'</option>';
+                }
+              ?>
+            </select>
+            <label for="serviceid-2">Urgency</label>
+            <select id="urgency" name="urgency" data-name="urgency" required="" class="settings-text-input w-select">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+            <label for="description">Description</label>
+            <textarea data-name="description" maxlength="5000" id="description" name="description" required="" class="w-input"></textarea>
+            <input type="submit" value="Submit" class="submit-button-4 w-button">
+          </form>
         </div>
       </div>
     </div>

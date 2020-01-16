@@ -32,7 +32,7 @@ $GLOBALS['config'] = array (
         'username' => 'tom@socialspring.co.uk',
         'password' => 'Gandalf56332019',
         'email' => 'tom@socialspring.co.uk',
-        'email_name' => 'Rustys Hosting'
+        'email_name' => 'Rustys Hosting',
     ),
     'redis' => array(
         'ip' => '127.0.0.1',

@@ -90,7 +90,6 @@ if(!$user->isLoggedIn()) {
                             }
                         break;
                         default:
-                            var_dump($_POST);
                             echo 'Unknown command.';
                         break;
                     }
