@@ -153,6 +153,8 @@ if($user->isLoggedIn())
         <input type="checkbox" id="globalchat" name="globalchat" data-name="globalchat" <?php echo ($service->config()->global_chat === "1" ? "checked" : "");  ?> style="opacity:0;position:absolute;z-index:-1"><span for="globalchat" class="w-form-label"><strong class="bold-text">Global Chat</strong></span></label>
                           <label for="headerimage">Header Image URL</label>
                           <input type="text" class="config-input w-input" maxlength="256" value="<?php echo $service->config()->header_image; ?>" name="headerimage" data-name="headerimage" id="headerimage">
+                          <label for="service-password">Service Password</label>
+                          <input type="text" class="config-input w-input" value="<?php echo $service->data()->service_password; ?>" id="service-password">
                           <input type="submit" value="Update" class="submit-button-7 w-button">
                       </form></div>
                     </div>

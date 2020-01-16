@@ -113,6 +113,11 @@ class DB {
         return false;
     }
 
+    public function queryString()
+    {
+        return $this->_query;
+    }
+
     public function getLastInsertedResults($table, $pkey = "id")
     {
         return $this->query("SELECT * FROM `{$table}` WHERE `id`=LAST_INSERT_ID();");

@@ -113,10 +113,12 @@ $token = Token::generate();
       <div class="faq">
         <h3 class="heading-9">FAQ</h3>
         <div class="w-richtext">
+          <h4>How do I manage my server?</h4>
+          <p>Click the little Cog icon next to your servers Service ID</p>
           <h4>How do I FTP?</h4>
           <p>Download a FTP client like FileZilla and use your servers IP and Service username and password as your connection details</p>
           <h4>How can I run commands on my server?</h4>
-          <p>Use the Console tab of your server, simply hit Connect and then type your command in the box and hit send. For a list of server commands look <a href="https://rust.fandom.com/wiki/Server_Commands">here</a></p>
+          <p>Use the Console tab of your server, simply hit Connect and then type your command in the box and hit send. For a list of server commands look <i href="https://rust.fandom.com/wiki/Server_Commands">here</i></p>
           <h4>How do Backups work?</h4>
           <p>Backups are taken every hour and you have a total of 10GB storage per server. Backups are stored on an external cloud server so your server is always safely backed up. </p>
           <h4>How do I restart/stop/start my server?</h4>
@@ -129,8 +131,11 @@ $token = Token::generate();
           <p>Connect to your servers FTP and place your plugins in the Plugins folder</p>
           <h4>How do I purchase a server?</h4>
           <p>From the Servers tab at the top is the new servers box, select a region and hit Buy. You'll be taken to our payment provider for payment details and upon completion your server will be created</p>
+          <h4>How do I cancel a subscription</h4>
+          <p>From the servers page next to the server you wish to cancel choose Cancel. This will automatically stop billing at the end of the current expiry.</p>
+          <h4>Why does my server expire in a month?</h4>
+          <p>This is simply the date and time of your next bill for that server, unless you've hit Cancel we will automatically bill you at the end of the expiry period and then it will update for another 30 days</p></div>
         </div>
-      </div>
       <div class="support">
         <h3 class="heading-10">Support</h3>
         <div class="w-richtext">

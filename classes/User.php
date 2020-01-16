@@ -91,7 +91,9 @@ class User {
             $id = $this->data()->id;
         }
         if(!$this->_db->update('users', $id, $fields)) {
-            throw new Exception('There was a problem updating your data.');
+            var_dump($this->_db->errorInfo());
+            var_dump($this->_db->queryString());
+            throw new Exception('There was a problem updating your data. ');     
         }
     }
 

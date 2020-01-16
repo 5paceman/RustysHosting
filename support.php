@@ -19,7 +19,10 @@ if(!$user->isLoggedIn()) {
                     'serviceid' => $service->data()->service_id
                 );
                 Email::getInstance()->sendEmailWithReplyTo($user->data()->email, 'New Support Request -'.$urgency, "support-email", $user->data()->email, $user->data()->firstname, $variables);
+                echo 'Submitted.';
             }
+        } else {
+            echo 'Unknown ServiceID.';
         }
     }
 }
