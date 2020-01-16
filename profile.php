@@ -114,24 +114,21 @@ $token = Token::generate();
         <h3 class="heading-9">FAQ</h3>
         <div class="w-richtext">
           <h4>How do I FTP?</h4>
-          <p>Using a FTP client such as FileZilla use the server IP and FTP logins details provided on your servers information page, these will also be emailed to you when a game server is created</p>
-          <h4>How do I FTP?</h4>
-          <p>Using a FTP client such as FileZilla use the server IP and FTP logins details provided on your servers information page, these will also be emailed to you when a game server is created</p>
-          <h4>How do I FTP?</h4>
-          <p>Using a FTP client such as FileZilla use the server IP and FTP logins details provided on your servers information page, these will also be emailed to you when a game server is created</p>
-          <h4>How do I FTP?</h4>
-          <p>Using a FTP client such as FileZilla use the server IP and FTP logins details provided on your servers information page, these will also be emailed to you when a game server is created</p>
-          <h4>How do I FTP?</h4>
-          <p>Using a FTP client such as FileZilla use the server IP and FTP logins details provided on your servers information page, these will also be emailed to you when a game server is created</p>
-          <h4>How do I FTP?</h4>
-          <p>Using a FTP client such as FileZilla use the server IP and FTP logins details provided on your servers information page, these will also be emailed to you when a game server is created</p>
-          <h4>How do I FTP?</h4>
-          <p>Using a FTP client such as FileZilla use the server IP and FTP logins details provided on your servers information page, these will also be emailed to you when a game server is created</p>
-          <h4>How do I FTP?</h4>
-          <p>Using a FTP client such as FileZilla use the server IP and FTP logins details provided on your servers information page, these will also be emailed to you when a game server is created</p>
-          <h4>How do I FTP?</h4>
-          <p>Using a FTP client such as FileZilla use the server IP and FTP logins details provided on your servers information page, these will also be emailed to you when a game server is created</p>
-          <h4>‍</h4>
+          <p>Download a FTP client like FileZilla and use your servers IP and Service username and password as your connection details</p>
+          <h4>How can I run commands on my server?</h4>
+          <p>Use the Console tab of your server, simply hit Connect and then type your command in the box and hit send. For a list of server commands look <a href="https://rust.fandom.com/wiki/Server_Commands">here</a></p>
+          <h4>How do Backups work?</h4>
+          <p>Backups are taken every hour and you have a total of 10GB storage per server. Backups are stored on an external cloud server so your server is always safely backed up. </p>
+          <h4>How do I restart/stop/start my server?</h4>
+          <p>On the Information tab you have 3 buttons marked with the Play, Stop and Restart icons. Click these accordingly.</p>
+          <h4>How can I install RustIO</h4>
+          <p>On the Tools tab you can click the Install RustIO button. This will install RustIO for you automatically, after 10 minutes restart your server and RustIO should be installed</p>
+          <h4>How can I update my server and/or Oxide?</h4>
+          <p>Same as install RustIO on the tools tab is a button for automatically doing this. It will always download the latest version of Oxide and Rust server and install them for you.</p>
+          <h4>How can I install Oxide plugins?</h4>
+          <p>Connect to your servers FTP and place your plugins in the Plugins folder</p>
+          <h4>How do I purchase a server?</h4>
+          <p>From the Servers tab at the top is the new servers box, select a region and hit Buy. You'll be taken to our payment provider for payment details and upon completion your server will be created</p>
         </div>
       </div>
       <div class="support">
