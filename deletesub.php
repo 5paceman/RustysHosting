@@ -11,7 +11,7 @@ if(Input::exists() && $user->isLoggedIn()) {
         if($service_id)
         {
             $service = $db->get('services', array('id', '=', $service_id));
-            if($service->count() && $service->first()->user_id == $user->data()->id)
+            if($service->count() && ($service->first()->user_id == $user->data()->id || $user->isAdmin()))
             {
                 \Stripe\Stripe::setApiKey(Config::get('stripe/secret_api_key'));
                 $subscription = \Stripe\Subscription::update(

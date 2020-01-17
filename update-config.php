@@ -52,7 +52,7 @@ if(!$user->isLoggedIn()) {
         if($validation->passed()) {
             $service = new Service();
             if($service->find(Input::get('service_id'))) {
-                if($service->data()->user_id === $user->data()->id)
+                if($service->data()->user_id === $user->data()->id || $user->isAdmin())
                 {
                     $result = DB::getInstance()->update('service_configurations', $service->id(), array(
                         'hostname' => Input::get('hostname'),

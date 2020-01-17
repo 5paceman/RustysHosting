@@ -110,6 +110,11 @@ class User {
         return false;
     }
 
+    public function isAdmin()
+    {
+        return $this->hasPermission("admin");
+    }
+
     public function isStripeCustomer() {
         return ($this->exists() && !empty($this->data()->stripe_id));
     }

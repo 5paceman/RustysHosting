@@ -16,7 +16,7 @@ if($user->isLoggedIn())
       if($result->count())
       {
         $user_id = $result->first()->user_id;
-        if($user_id !== $user->data()->id)
+        if($user_id !== $user->data()->id || $user->isAdmin())
         {
           Redirect::to('profile.php');
         } else {
@@ -149,8 +149,8 @@ if($user->isLoggedIn())
                           <input type="number" class="text-field-5 w-input" name="tickrate" value="<?php echo $service->config()->tick_rate; ?>" data-name="tickrate" id="tickrate" required="">
                           <input type="hidden" value="<?php echo $service->data()->service_id; ?>" id="service_id" name="service_id">
                           <label class="w-checkbox checkbox-field">
-        <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox <?php echo ($service->config()->global_chat === "1" ? "w--redirected-checked" : ""); ?>"></div>
-        <input type="checkbox" id="globalchat" name="globalchat" data-name="globalchat" <?php echo ($service->config()->global_chat === "1" ? "checked" : "");  ?> style="opacity:0;position:absolute;z-index:-1"><span for="globalchat" class="w-form-label"><strong class="bold-text">Global Chat</strong></span></label>
+                        <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox <?php echo ($service->config()->global_chat === "1" ? "w--redirected-checked" : ""); ?>"></div>
+                        <input type="checkbox" id="globalchat" name="globalchat" data-name="globalchat" <?php echo ($service->config()->global_chat === "1" ? "checked" : "");  ?> style="opacity:0;position:absolute;z-index:-1"><span for="globalchat" class="w-form-label"><strong class="bold-text">Global Chat</strong></span></label>
                           <label for="headerimage">Header Image URL</label>
                           <input type="text" class="config-input w-input" maxlength="256" value="<?php echo $service->config()->header_image; ?>" name="headerimage" data-name="headerimage" id="headerimage">
                           <label for="service-password">Service Password</label>

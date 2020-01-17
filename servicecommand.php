@@ -13,7 +13,7 @@ if(!$user->isLoggedIn()) {
     if(Input::exists()) {
         $service = new Service();
             if($service->find(Input::get('service_id'))) {
-                if($service->data()->user_id === $user->data()->id)
+                if($service->data()->user_id === $user->data()->id || $user->isAdmin())
                 {
                     switch(Input::get('command'))
                     {
