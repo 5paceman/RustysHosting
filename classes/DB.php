@@ -60,6 +60,11 @@ class DB {
                     return $this;
                 }
             }
+        } else if($where[0] === "*"){
+            $sql = "{$action} FROM {$table}";
+                if(!$this->query($sql)->error()) {
+                    return $this;
+                }
         }
         return $this;
     }

@@ -8,10 +8,11 @@ if(Input::exists() && $user->isLoggedIn()) {
     {
         $db = DB::getInstance();
         $service_id = Input::get('serviceId');
+        $isAdmin = $user->isAdmin();
         if($service_id)
         {
             $service = $db->get('services', array('id', '=', $service_id));
-            if($service->count() && ($service->first()->user_id == $user->data()->id || $user->isAdmin()))
+            if($service->count() && ($service->first()->user_id == $user->data()->id || $isAdmin))
             {
                 \Stripe\Stripe::setApiKey(Config::get('stripe/secret_api_key'));
                 $subscription = \Stripe\Subscription::update(

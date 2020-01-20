@@ -11,9 +11,10 @@ if(!$user->isLoggedIn()) {
     echo 'You need to be logged in.';
 } else {
     if(Input::exists()) {
+        $isAdmin = $user->isAdmin();
         $service = new Service();
             if($service->find(Input::get('service_id'))) {
-                if($service->data()->user_id === $user->data()->id || $user->isAdmin())
+                if($service->data()->user_id === $user->data()->id || $isAdmin)
                 {
                     switch(Input::get('command'))
                     {

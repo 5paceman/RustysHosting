@@ -8,8 +8,9 @@ if(!$user->isLoggedIn()) {
     if(Input::exists()) {
         $service = new Service();
         $serviceID = Input::get('service_id');
+        $isAdmin = $user->isAdmin();
             if($service->find($serviceID)) {
-                if($service->data()->user_id === $user->data()->id || $user->isAdmin())
+                if($service->data()->user_id === $user->data()->id || $isAdmin)
                 {
                     if(Input::get('action') === "ping")
                     {

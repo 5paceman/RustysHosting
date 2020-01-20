@@ -12,11 +12,12 @@ if($user->isLoggedIn())
     $serviceId = Input::get("serviceId");
     if(isset($serviceId))
     {
+      $isAdmin = $user->isAdmin();
       $result = DB::getInstance()->get('services', array('service_id', '=', $serviceId));
       if($result->count())
       {
         $user_id = $result->first()->user_id;
-        if($user_id !== $user->data()->id || $user->isAdmin())
+        if(!$isAdmin && $user_id !== $user->data()->id)
         {
           Redirect::to('profile.php');
         } else {
