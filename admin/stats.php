@@ -26,6 +26,15 @@ if($user->isLoggedIn() && $user->isAdmin())
             }
             header('Content-Type: application/json');
             echo json_encode($json);
+        } else if($statistic === "logs")
+        {
+            $logs = Redis::getInstance()->getList("reporting:machines:events");
+            echo '<pre>';
+            foreach($logs as $line)
+            {
+                print_r($line);
+            }
+            echo '</pre>';
         }
     }
 }

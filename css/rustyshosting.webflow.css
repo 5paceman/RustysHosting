@@ -1226,14 +1226,15 @@ table.serviceTable thead th {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
+  width: 100vw;
   background-color: #38383d;
 }
 
 .admin-content {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
   border-left: 1px solid #1e1e22;
 }
 
@@ -1327,10 +1328,19 @@ table.serviceTable thead th {
   display: none;
 }
 
+.widget-label {
+  width: 33%;
+  color: white;
+}
+
+pre {
+  margin: 0;
+}
+
 .dashboard-widget {
-  width: 30%;
+  width: 33%;
   height: 400px;
-  margin-left: 10px;
+  margin-left: 0px;
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;

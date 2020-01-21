@@ -61,9 +61,10 @@ if(!$user->isAdmin())
         <div data-w-id="ed3fce15-f066-69fb-471b-0667819f5f02" class="dashboard-content content-item-fill">
             <h3 class="heading-20">Dashboard</h3>
             <div class="dashboard-widgets">
-                <div class="dashboard-widget"><canvas id="bar" width="100%" height="75%"></canvas></div>
-                <div class="dashboard-widget"></div>
-                <div class="dashboard-widget"></div>
+                <h4 class="widget-label">CPU</h4><h4 class="widget-label">Memory</h4><h4 class="widget-label">HDD</h4>
+                <div class="dashboard-widget"><canvas id="cpu" width="100%" height="70%"></canvas></div>
+                <div class="dashboard-widget"><canvas id="memory" width="100%" height="70%"></canvas></div>
+                <div class="dashboard-widget"><canvas id="hdd" width="100%" height="70%"></canvas></div>
                 <div class="event-log">This is some text inside of a div block.</div>
             </div>
         </div>
