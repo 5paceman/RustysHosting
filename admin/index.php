@@ -18,8 +18,6 @@ if(!$user->isAdmin())
 ?>
 
 <!DOCTYPE html>
-<!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Sun Jan 19 2020 22:15:05 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="5e21d72b10e349e7adf17d44" data-wf-site="5dd179360336825db0f49358">
 
 <head>
@@ -63,7 +61,7 @@ if(!$user->isAdmin())
         <div data-w-id="ed3fce15-f066-69fb-471b-0667819f5f02" class="dashboard-content content-item-fill">
             <h3 class="heading-20">Dashboard</h3>
             <div class="dashboard-widgets">
-                <div class="dashboard-widget"></div>
+                <div class="dashboard-widget"><canvas id="bar" width="100%" height="75%"></canvas></div>
                 <div class="dashboard-widget"></div>
                 <div class="dashboard-widget"></div>
                 <div class="event-log">This is some text inside of a div block.</div>
@@ -162,30 +160,7 @@ if(!$user->isAdmin())
     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="../js/webflow.js" type="text/javascript"></script>
     <script src="../js/fancyTable.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $("#usersTable").fancyTable({
-            sortColumn:0,
-            sortOrder:'descending',
-            sortable:true,
-            pagination:true,
-            searchable:true,
-            globalSearch:true,
-            inputStyle:"width: 30%; color: black;",
-            paginationClass:"pagination",
-            paginationClassActive:"paginationActive"
-        });
-        $("#servicesTable").fancyTable({
-            sortColumn:0,
-            sortOrder:'descending',
-            sortable:true,
-            pagination:true,
-            searchable:true,
-            globalSearch:true,
-            inputStyle:"width: 30%; color: black;",
-            paginationClass:"pagination",
-            paginationClassActive:"paginationActive"
-        });
-    </script>
+    <script src="admin.js" type="text/javascript"></script>
     <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
 

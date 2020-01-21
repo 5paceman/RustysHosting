@@ -1,34 +1,41 @@
 <?php
-
-require_once 'init/core.php';
+chdir("/var/www/");
+require_once 'core/init.php';
 
 $user = new User();
 
 if($user->isLoggedIn() && $user->isAdmin())
 {
-    if(Input::exists())
+    if(Input::exists('get'))
     {
         $statistic = Input::get('statistic');
-        if($statistic === "cpu")
+        if($statistic === "all")
         {
-            $machine = Input::get('machine');
-            $cpu = Redis::getInstance()->get("reporting:machines:".$machine."cpu");
-            echo $cpu;
-        } else if($statistic === "memory")
-        {
-            $machine = Input::get('machine');
-            $memory = Redis::getInstance()->get("reporting:machines:".$machine."memory");
-            echo $memory;
-        } else if($statistic === "hdd")
-        {
-            $machine = Input::get('machine');
-            $hdd = Redis::getInstance()->get("reporting:machines:".$machine."hdd");
-            echo $hdd;
-        } else if($statistic === "users")
-        {
-            $machine = Input::get('machine');
-            $users = Redis::getInstance()->get("reporting:machines:".$machine."users");
-            echo $users;
+            $json = array();
+            $machines = DB::getInstance()->get('machines', array('*'));
+            foreach($machines->results() as $machine)
+            {
+                $cpu = getStat('cpu', $machine->dns_name);
+                $memory = getStat('memory', $machine->dns_name);
+                $hdd = getStat('hdd', $machine->dns_name);
+                $users = getStat('users', $machine->dns_name);
+                $json[$machine->dns_name]['cpu'] = $cpu;
+                $json[$machine->dns_name]['memory'] = $memory;
+                $json[$machine->dns_name]['hdd'] = $hdd;
+                $json[$machine->dns_name]['users'] = $users;
+            }
+            header('Content-Type: application/json');
+            echo json_encode($json);
         }
     }
+}
+
+function getStat($stat, $machine) {
+    $result = Redis::getInstance()->getList("reporting:machines:".$machine.":".$stat);
+    if(count($result) > 48)
+    {
+        Redis::getInstance()->trimList("reporting:machines:".$machine.":".$stat, count($result) - 48 -1, count($result));
+        $result = Redis::getInstance()->getList("reporting:machines:".$machine.":".$stat);
+    }
+    return $result;
 }
