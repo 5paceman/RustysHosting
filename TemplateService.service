@@ -1,0 +1,17 @@
+[Unit]
+Description=#description#
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=0
+User=#user#
+WorkingDirectory=#workingpath#
+ExecStart=#execpath#
+
+[Install]
+WantedBy=multi-user.target
+

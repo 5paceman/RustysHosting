@@ -1,0 +1,17 @@
+[Unit]
+Description=Monitors machine resources
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=0
+User=root
+WorkingDirectory=/usr/local/bin
+ExecStart=/usr/local/bin/Monitor.sh
+
+[Install]
+WantedBy=multi-user.target
+
