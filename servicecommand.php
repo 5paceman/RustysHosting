@@ -14,7 +14,7 @@ if(!$user->isLoggedIn()) {
         $isAdmin = $user->isAdmin();
         $service = new Service();
             if($service->find(Input::get('service_id'))) {
-                if($service->data()->user_id === $user->data()->id || $isAdmin)
+                if(($service->data()->user_id === $user->data()->id && $service->isValid()) || $isAdmin)
                 {
                     switch(Input::get('command'))
                     {

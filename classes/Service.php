@@ -127,6 +127,11 @@ class Service {
         }
     }
 
+    public function isValid()
+    {
+        return strtotime(expiry()) > time();
+    }
+
     public function config()
     {
         if(!isset($this->_serviceConfiguration))

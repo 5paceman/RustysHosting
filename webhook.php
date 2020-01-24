@@ -37,13 +37,18 @@ function handleInvoicePaymentSucceeded($invoice)
     {
         $db = DB::getInstance();
         $subscription_id = $invoice->lines->data[0]->subscription;
-        $plans = $db->get('services', array('stripe_id', '=', $subscription_id));
+        $services = $db->get('services', array('stripe_id', '=', $subscription_id));
         if($plans->count())
         {
             $datetime = new DateTime("+1 month +2 day");
             $expiry = $datetime->format('Y-m-d H:i:s');
-            $result = $db->update('services', $plans->first()->id, array(
+            $result = $db->update('services', $services->first()->id, array(
                 'expiry' => $expiry
+            ));
+            Redis::getInstance()->putJobToMachine($services->first()->machine_id, "RenewBilling.sh {$services->first()->service_id}", array(
+                "locks" => array(
+                    "service:{$services->first()->id}"
+                )
             ));
             if(!$result)
             {

@@ -11,7 +11,7 @@ use Akeeba\Engine\Postproc\Connector\S3v4\Connector;
 
 $DB = DB::getInstance();
 
-$services = $DB->get('services', array('id', '=', '*'));
+$services = $DB->get('services', array('*'));
 
 function RemoveBackup($space, $file)
 {

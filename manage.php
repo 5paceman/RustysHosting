@@ -22,6 +22,10 @@ if($user->isLoggedIn())
           Redirect::to('profile.php');
         } else {
           $service = new Service(null, $result->first());
+          if(!$service->isValid())
+          {
+            Redirect::to('profile.php');
+          }
         }
       } else {
         Redirect::to('profile.php');

@@ -10,7 +10,7 @@ if(!$user->isLoggedIn()) {
         $serviceID = Input::get('service_id');
         $isAdmin = $user->isAdmin();
             if($service->find($serviceID)) {
-                if($service->data()->user_id === $user->data()->id || $isAdmin)
+                if(($service->data()->user_id === $user->data()->id && $service->isValid()) || $isAdmin)
                 {
                     if(Input::get('action') === "ping")
                     {
