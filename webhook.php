@@ -27,39 +27,89 @@ switch ($event->type) {
     case 'invoice.payment_succeeded':
         handleInvoicePaymentSucceeded($event->data->object);
     break;
+    case 'invoice.payment_failed':
+        handleInvoiceFailed($event->data->object);
+    break;
 }
 
 http_response_code(200);
-# "billing_reason": "subscription_cycle",
+
+function handleInvoiceFailed($invoice)
+{
+    $customer = \Stripe\Customer::retrieve($invoice->customer);
+    $userid = DB::getInstance()->get('users', array('stripe_id', '=', $invoice->customer))->first()->id;
+    $amount = sprintf('$%0.2f', $invoice->amount_due / 100.0);
+    foreach($invoice->lines->data as $invoiceline)
+    {
+        if($invoiceline->subscription)
+        {
+            $service = DB::getInstance()->get('services', array('stripe_id', '=', $invoiceline->subscription));
+            $serviceId = $service->first()->id;
+            if($service->count())
+            {
+                Redis::getInstance()->putJobToMachine($service->first()->machine_id, "PauseAccount.sh {$service->first()->service_id}", array(
+                    "locks" => array(
+                        "service:{$serviceId}"
+                    )
+                ));
+                $datetime = new DateTime("-1 day");
+                $expiry = $datetime->format('Y-m-d H:i:s');
+                $result = DB::getInstance()->update('services', $serviceId, array(
+                    'expiry' => $expiry
+                ));
+            }
+        }
+    }
+
+    $name = "Invoice".($invoice->created).".pdf";
+    file_put_contents('/var/www/invoices/'.$name, fopen($invoice->invoice_pdf, 'r'));
+    $user = new User($userid);
+    Email::getInstance()->sendEmailWithAttachments($user->data()->email, "Failed Invoice Payment", "failed-invoice", array(
+        'name' => $user->data()->firstname,
+        'cost' => $amount,
+        'pay_url' => $invoice->hosted_invoice_url
+    ), array(
+        '/var/www/invoices/'.$name
+    ));
+}
+
 function handleInvoicePaymentSucceeded($invoice)
 {
-    if($invoice->billing_reason === "subscription_cycle")
+    if($invoice->billing_reason === "subscription_cycle" || $invoice->billing_reason === "manual")
     {
         $db = DB::getInstance();
-        $subscription_id = $invoice->lines->data[0]->subscription;
-        $services = $db->get('services', array('stripe_id', '=', $subscription_id));
-        if($plans->count())
+        foreach($invoice->lines->data as $invoiceline)
         {
-            $datetime = new DateTime("+1 month +2 day");
-            $expiry = $datetime->format('Y-m-d H:i:s');
-            $result = $db->update('services', $services->first()->id, array(
-                'expiry' => $expiry
-            ));
-            Redis::getInstance()->putJobToMachine($services->first()->machine_id, "RenewBilling.sh {$services->first()->service_id}", array(
-                "locks" => array(
-                    "service:{$services->first()->id}"
-                )
-            ));
-            if(!$result)
+            if($invoiceline->subscription)
             {
-                print_r($db->errorInfo());
+                $subscription_id = $invoiceline->subscription;
+                $services = $db->get('services', array('stripe_id', '=', $subscription_id));
+                if($services->count())
+                {
+                    $service = new Service($services->first()->id, null);
+                    $datetime = new DateTime("+1 month +2 day");
+                    $expiry = $datetime->format('Y-m-d H:i:s');
+                    $result = $db->update('services', $service->id(), array(
+                        'expiry' => $expiry
+                    ));
+                    Redis::getInstance()->putJobToMachine($service->data()->machine_id, "RenewBilling.sh {$service->data()->service_id}", array(
+                        "locks" => array(
+                            "service:{$service->data()->id}"
+                        )
+                    ));
+                    if(!$result)
+                    {
+                        print_r($db->errorInfo());
+                    }
+                }
             }
         }
     }
     if(isset($invoice->invoice_pdf)) {
+        $userid = DB::getInstance()->get('users', array('stripe_id', '=', $invoice->customer))->first()->id;
         $name = "Invoice".($invoice->created).".pdf";
         file_put_contents('/var/www/invoices/'.$name, fopen($invoice->invoice_pdf, 'r'));
-        $user = new User($invoice->lines->data[0]->metadata->user_id);
+        $user = new User($userid);
         Email::getInstance()->sendEmailWithAttachments($user->data()->email, "Invoice", "invoice", array(
             'name' => $user->data()->firstname,
             'invoice_url' => $invoice->hosted_invoice_url
