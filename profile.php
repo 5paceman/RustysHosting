@@ -69,6 +69,12 @@ $token = Token::generate();
               <option value="3">East Europe</option>
               <option value="4">USA East</option>
             </select>
+            <select id="planID" name="planID" data-name="plan" class="w-select">
+              <option value="1">12$ Wood - 20-30 Slots</option>
+              <option value="2">16$ Stone - 30-50 Slots</option>
+              <option value="3">24$ Metal - 50-100 Slots</option>
+              <option value="4">32$ Kevlar - 100+ Slots</option>
+            </select>
             <input type="submit" value="Buy" class="submit-button-8 w-button">
           </form>
           </div>
@@ -96,12 +102,10 @@ $token = Token::generate();
             <?php
             $time = strtotime($user_service->expiry());
 
-            echo '<td>'.date("jS F Y h:ia", $time).'</td>';
-
             if($time < time()) {
-                echo '<td><form action="purchase.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="planId" value="'.$user_service->data()->plan_id.'"/><input type="hidden" name="regionId" value="1"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Pay"><br/></form></td>';
+                echo '<td>Expired</td><td><form action="purchase.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="planId" value="'.$user_service->data()->plan_id.'"/><input type="hidden" name="regionId" value="1"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Pay"><br/></form></td>';
             } elseif($time > time()) {
-                echo '<td><form action="updatesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Update"><br/></form><form action="deletesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Cancel"><br/></form></td>';
+                echo '<td>'.date("jS F Y h:ia", $time).'</td>'.'<td><form action="updatesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Update"><br/></form><form action="changeplan.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Change Plan"><br/></form></form><form action="deletesub.php" method="POST"><input type="hidden" name="serviceId" value="'.$user_service->id().'"/><input type="hidden" name="token" value="'.$token.'"/><input style="margin-left: 5px;" class="service-buttons submit-button-4 w-button" type="submit" value="Cancel"><br/></form></td>';
             }
             ?>
         </tr>
@@ -135,6 +139,12 @@ $token = Token::generate();
           <p>From the servers page next to the server you wish to cancel choose Cancel. This will automatically stop billing at the end of the current expiry.</p>
           <h4>Why does my server expire in a month?</h4>
           <p>This is simply the date and time of your next bill for that server, unless you've hit Cancel we will automatically bill you at the end of the expiry period and then it will update for another 30 days</p></div>
+          <h4>How do I install Oxide?</h4>
+          <p>On the service management page under the Tools tab is the button to install Oxide</p>
+          <h4>How do I upload Oxide plugins?</h4>
+          <p>FTP to your server and install plugins in to the Oxide/Plugins folder</p>
+          <h4>How do I uninstall Oxide?</h4>
+          <p>On the tools tab, simply choose to Update Rust. This will update Rust in which doing so will uninstall Oxide</p>
         </div>
       <div class="support">
         <h3 class="heading-10">Support</h3>

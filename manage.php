@@ -183,8 +183,17 @@ if($user->isLoggedIn())
                             <div class="grid-cell">
                                 <div class="w-form">
                                     <form class="form">
-                                        <label for="name" class="field-label">Update Rust &amp; Oxide</label>
+                                        <label for="name" class="field-label">Update Rust</label>
                                         <input type="submit" value="Install" data-wait="Please wait..." data-command="update" class="server-command submit-button-5 w-button">
+                                        <label class="field-label">Please note this will immediately shutdown your server.</label>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="grid-cell">
+                                <div class="w-form">
+                                    <form class="form">
+                                        <label for="name" class="field-label">Install/Update &amp; Oxide</label>
+                                        <input type="submit" value="Install" data-wait="Please wait..." data-command="oxide" class="server-command submit-button-5 w-button">
                                         <label class="field-label">Please note this will immediately shutdown your server.</label>
                                     </form>
                                 </div>

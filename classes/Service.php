@@ -82,7 +82,7 @@ class Service {
         } else {
             $this->_db->getLastInsertedResults("services");
             $serviceId = $this->_db->first()->id;
-            Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan1 20971520 ".$service_password." ".$port);
+            Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan{$plan_id} 20971520 ".$service_password." ".$port);
             
             
             $result = $this->_db->insert('service_configurations', array(
@@ -129,7 +129,7 @@ class Service {
 
     public function isValid()
     {
-        return strtotime(expiry()) > time();
+        return strtotime($this->expiry()) > time();
     }
 
     public function config()

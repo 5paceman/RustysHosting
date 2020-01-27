@@ -2,16 +2,31 @@
 class Machine {
 
     public static function getLeastUsedMachine($region_id) {
-        $count = 1000;
         $machine_id = -1;
+        $candidates = array();
         $machines = DB::getInstance()->get('machines', array('region_id', '=', $region_id));
         foreach($machines->results() as $machine)
         {
+            $totalUsedRam = 0;
             $services = DB::getInstance()->get('services', array('machine_id', '=', $machine->id));
-            if($services->count() < $count)
+            foreach($services->results() as $service)
             {
-                $count = $services->count();
-                $machine_id = $machine->id;
+                $plan = DB::getInstance()->get('plans', array('id', '=', $service->plan_id));
+                $totalUsedRam += $plan->first()->ram;
+            }
+            if($totalUsedRam < $machine->ram - 4)
+            {
+                $candidates["{$machine->id}"] = ($totalUsedRam / $machine->ram);
+            }
+        }
+
+        $count = 5;
+        foreach($candidates as $candidateid => $usedrampercentage)
+        {
+            if($usedrampercentage < $count)
+            {
+                $machine_id = $candidateid;
+                $count = $usedrampercentage;
             }
         }
         return $machine_id;

@@ -58,6 +58,14 @@ if(!$user->isLoggedIn()) {
                                 )
                             ));
                         break;
+                        case 'oxide':
+                            echo 'Oxide is updating/Installing. Please wait for server startup.';
+                            Redis::getInstance()->putJobToMachine($service->data()->machine_id, "UpdateOxide.sh {$service->data()->service_id}", array(
+                                "locks" => array(
+                                    "service:{$service->id()}"
+                                )
+                            ));
+                        break;
                         case 'restore':
                             $backup = DB::getInstance()->get('backups', array("id", "=", Input::get('backupID')));
                             if($backup->count())

@@ -24,7 +24,7 @@ if($user->isLoggedIn()) {
     if($user->hasPermission('admin')) {
         echo 'You\'re an admin<br/>';
     }
-    echo Machine::getNextPort(1, 2);
+    echo Machine::getLeastUsedMachine(1);
     $token = Token::generate();
     ?>
         <p>Hello <a href="profile.php?user=<?php echo escape($user->data()->username);?>"><?php echo escape($user->data()->username);?></a></p>

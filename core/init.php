@@ -23,8 +23,8 @@ $GLOBALS['config'] = array (
         'public_api_key' => 'pk_test_ulFsHot2IXRDChrayq0u7Jrt001mkBXhBx',
         'secret_api_key' => 'sk_test_seqxgzLOv4mFd55rY56dLNLP00evpvrV3T',
         'signing_secret' => 'whsec_r91TSCA0wATHbCT0g292SHed68gT0Zvo',
-        'success_page' => 'http://d42e0e3a.ngrok.io/profile.php',
-        'cancel_page' => 'http://d42e0e3a.ngrok.io'
+        'success_page' => 'http://eef315db.ngrok.io/profile.php',
+        'cancel_page' => 'http://eef315db.ngrok.io'
     ),
     'email' => array(
         'smtp_host' => "smtp.office365.com",
