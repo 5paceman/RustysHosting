@@ -1316,6 +1316,33 @@ table.serviceTable thead th {
   padding: 10px;
 }
 
+.logout {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.dropdown-list {
+  background-color: #24272c;
+}
+
+.dropdown-list.w--open {
+  margin-top: 0px;
+}
+
+.dropdown-link {
+  padding-top: 10px;
+  color: #fff;
+}
+
+.dropdown-toggle {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.dropdown-toggle.w--open {
+  padding: 10px 20px 10px 0px;
+}
+
 .users-content.content-item-fill {
   display: none;
 }

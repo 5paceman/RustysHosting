@@ -31,7 +31,12 @@ $token = Token::generate();
 </head>
 <body class="body-3">
   <div class="top-bar"><a href="index.php" class="link-block w-inline-block"><img src="images/logo.png" height="48" width="48" alt="" class="image"><h2 class="heading-12">Rusty&#x27;s Hosting</h2></a>
-    <div class="text-block-5"><span class="list-icon"></span><?php echo $user->data()->email; ?></div>
+    <div data-delay="0" class="logout w-dropdown">
+      <div class="dropdown-toggle w-dropdown-toggle">
+        <div class="text-block-5"><span class="list-icon"></span><?php echo $user->data()->email; ?> <span class="list-icon"></span></div>
+      </div>
+      <nav class="dropdown-list w-dropdown-list"><a href="logout.php" class="dropdown-link w-dropdown-link"><span class="list-icon"></span>Logout</a></nav>
+    </div>
   </div>
   <div class="profile-main">
     <div class="profile-sidebar">
