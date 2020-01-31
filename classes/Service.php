@@ -82,7 +82,8 @@ class Service {
         } else {
             $this->_db->getLastInsertedResults("services");
             $serviceId = $this->_db->first()->id;
-            Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan{$plan_id} 20971520 ".$service_password." ".$port);
+            $diskSpace = $this->_db->get('plans', array('id', '=', $plan_id))->first()->disk_size;
+            Redis::getInstance()->putJobToMachine($machine_id, "MakeUser.sh ".$service_id." plan{$plan_id} {$diskSpace} ".$service_password." ".$port);
             
             
             $result = $this->_db->insert('service_configurations', array(

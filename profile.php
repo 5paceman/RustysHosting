@@ -74,7 +74,7 @@ $token = Token::generate();
               <option value="3">East Europe</option>
               <option value="4">USA East</option>
             </select>
-            <select id="planID" name="planID" data-name="plan" class="w-select">
+            <select id="planId" name="planId" data-name="plan" class="w-select">
               <option value="1">12$ Wood - 20-30 Slots</option>
               <option value="2">16$ Stone - 30-50 Slots</option>
               <option value="3">24$ Metal - 50-100 Slots</option>

@@ -63,19 +63,44 @@ if(Input::exists() && Token::check(Input::get('token'))) {
     }
 }
 ?>
-<form method="POST" action="">
-    <label for="username">Username<br/></label>
-    <input type="text" id="username" name="username" autocomplete="off" value="<?php echo escape(Input::get('username')); ?>"/><br/>
-    <label for="password">Password<br/></label>
-    <input id="password" autocomplete="off" name="password" type="password" /><br/>
-    <label for="repeat_password">Repeat Password<br/></label>
-    <input id="repeat_password" autocomplete="off" name="repeat_password" type="password" /><br/>
-    <label for="email">Email<br/></label>
-    <input id="email" autocomplete="off" name="email" type="email" value="<?php echo escape(Input::get('email')); ?>" /><br/>
-    <label for="Firstname">Firstname<br/></label>
-    <input id="Firstname" autocomplete="off" name="Firstname" type="Firstname" /><br/>
-    <label for="Lastname">Lastname<br/></label>
-    <input id="Lastname" autocomplete="off" name="Lastname" type="Lastname" /><br/>
-    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>"/><br/>
-    <button type="submit">Submit</button>
-</form>
+<!DOCTYPE html>
+<!--  Last Published: Sun Nov 17 2019 02:03:58 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="5dd07f30edfe6a37ec68c3c4" data-wf-site="5d8fb360124e070f85051b6c">
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <meta content="Login" property="og:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/rustyshosting.webflow.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Work Sans:regular"]  }});</script>
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+</head>
+<body class="body-2">
+  <div class="main">
+    <div class="form-block-3 w-form">
+      <form id="email-form" action="" method="post">
+        <h3 class="heading-5">Register</h3>
+        <label for="name">Username</label>
+        <input type="text" class="text-field-3 w-input" name="username" id="username"autocomplete="off" value="<?php echo escape(Input::get('username')); ?>">
+        <label for="password">Password</label>
+        <input type="password" class="w-input" name="password" id="password">
+        <label for="repeat_password">Repeat Password</label>
+        <input type="password" class="w-input" name="repeat_password" id="repeat_password">
+        <label for="email">Email</label>
+        <input type="text" class="text-field-3 w-input" name="email" id="email"autocomplete="on" value="<?php echo escape(Input::get('email')); ?>">
+        <label for="Firstname">First Name</label>
+        <input type="text" class="text-field-3 w-input" name="Firstname" id="Firstname" autocomplete="on">
+        <label for="Lastname">Last Name</label>
+        <input type="text" class="text-field-3 w-input" name="Lastname" id="Lastname" autocomplete="on">
+        <input type="hidden" id="token" name="token" value="<?php echo Token::generate(); ?>">
+        <input type="submit" value="Register" class="submit-button-2 w-button"></form>
+    </div>
+  </div>
+</body>
+</html>
