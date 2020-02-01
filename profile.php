@@ -82,7 +82,38 @@ $token = Token::generate();
             </select>
             <input type="submit" value="Buy" class="submit-button-8 w-button">
           </form>
-          </div>
+        </div>
+        <?php
+          if(!$user->data()->free_trial_offer)
+          {
+            ?>
+                    <div class="free-trial">
+          <h1 class="free-trial-excl">!</h1>
+          <div class="free-trial-text">Start your free 24 hour trial, no credit/debit card details required!</div>
+          <div class="free-trial-form w-form">
+            <form id="free-trial" action="freetrial.php" method="POST" class="free-trial-form-content"><select id="regionid" name="regionid" data-name="regionid" class="ft-form-select w-select"><option value="1">West Europe</option><option value="2">USA West</option><option value="3">East Europe</option><option value="4">USA East</option></select><input type="submit" value="Start Trial" data-wait="Please wait..." class="fr-form-submit w-button"></form>
+        </div>
+            <?php
+          }
+        ?>
+        </div>
+        <?php
+          $service = new Service();
+          $services = $service->findAll($user->data()->id);
+          foreach($services as $user_service) {
+              if(strtotime($user_service->expiry()) < strtotime("+24 hour"))
+              {
+                $expires = strtotime($user_service->expiry());
+                  ?>
+                    <div class="popup">
+                      <h1 class="popup-icon">!</h1>
+                      <div class="popup-text">Your service <b><?php echo $user_service->data()->service_id; ?></b> expires in less than 24 hours!</div>
+                      <div class="popup-bold-text" data-time="<?php echo date("c",$expires); ?>">24h 22m 13s</div>
+                    </div>
+                  <?php
+              } 
+          }
+        ?>
         <table class="serviceTable">
         <thead>
             <tr>

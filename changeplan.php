@@ -48,7 +48,7 @@ if(Input::exists() && $user->isLoggedIn()) {
                                     'plan_id' => $plans->first()->id
                                 ));
                                 $plans = $db->get('plans', array('id', '=', $planId));
-                                Redis::getInstance()->putJobToMachine($service->data()->machine_id, "ChangePlan.sh plan{$currentPlanId} plan{$plans->first()->id} {$service->data()->service_id}", array(
+                                Redis::getInstance()->putJobToMachine($service->data()->machine_id, "ChangePlan.sh plan{$currentPlanId} plan{$plans->first()->id} {$service->data()->service_id} {$plans->first()->disk_size}", array(
                                     "locks" => array(
                                         "service:{$service->id()}"
                                     )
