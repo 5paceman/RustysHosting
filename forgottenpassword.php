@@ -66,6 +66,9 @@ function resetPassword($id)
   <link href="images/webclip.png" rel="apple-touch-icon">
 </head>
 <body class="body-2">
+<div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
+    <div class="container w-container"><a href="index.php" class="brand w-nav-brand"><img src="images/logo.png" alt="" class="image" width="48" height="48"><h2 class="heading-22">Rusty's Hosting</h2></a></div>
+  </div>
   <div class="main">
     <div class="form-block-3 w-form">
         <?php 

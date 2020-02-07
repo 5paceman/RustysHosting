@@ -1,21 +1,17 @@
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://js.stripe.com/v3/"></script>
+
 </head>
 <?php 
 require_once 'core/init.php';
 
 ?>
 <!DOCTYPE html>
-<!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Thu Jan 30 2020 17:17:25 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="5e30cd0d699b6059d071c3e0" data-wf-site="5dd179360336825db0f49358">
 <head>
   <meta charset="utf-8">
   <title>Rusty's Hosting | Rust Server Hosting</title>
   <meta content="Index2" property="og:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/index.css" rel="stylesheet" type="text/css">
@@ -25,6 +21,7 @@ require_once 'core/init.php';
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+  <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body class="body-7">
   <div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
@@ -158,13 +155,14 @@ require_once 'core/init.php';
     <div class="footer-block">
       <h4>Contact Us</h4>
       <div><strong>Support Email</strong>: support@rustyshosting.io</div>
-      <div class="social-icons"><a href="#" class="social-link"></a><a href="#" class="social-link"></a></div>
+      <div class="social-icons"><a href="https://twitter.com/RustysHosting" class="social-link"></a><a href="https://discord.gg/e5tmeGF" class="social-link"></a></div>
     </div>
     <div class="footer-block w-clearfix">
-      <h4>Sitemap</h4><a href="#" class="sitemap-link">Home</a><a href="#" class="sitemap-link">Login</a><a href="#" class="sitemap-link">Terms of Use</a><a href="#" class="sitemap-link">Privacy Policy</a><a href="#" class="sitemap-link">Acceptable Use Policy</a></div>
+      <h4>Sitemap</h4><a href="index.php" class="sitemap-link">Home</a><a href="login.php" class="sitemap-link">Login</a><a href="tac.html" class="sitemap-link">Terms and Conditions</a><a href="privacy.html" class="sitemap-link">Privacy Policy</a><a href="sla.html" class="sitemap-link">Service Level Agreement</a><a href="aup.html" class="sitemap-link">Acceptable Use Policy</a></div>
   </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+    <link rel="stylesheet" type="text/css" href="//wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="//wpcc.io/lib/1.0.2/cookieconsent.min.js"></script><script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#222222","text":"#ffffff","border":"#b4eae4"},"button":{"background":"#b4eae4","text":"#000000"}},"position":"bottom","content":{"href":"https://rustyshosting.io/cookie"}})});</script>
 </body>
 </html>

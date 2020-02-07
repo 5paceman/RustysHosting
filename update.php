@@ -22,6 +22,9 @@ if(!$user->isLoggedIn()) {
                     'required' => true,
                     'min' => 1,
                     'max' => 50
+                ),
+                'receiveemails' => array(
+                    'required' => true
                 )
             ));
 
@@ -30,7 +33,8 @@ if(!$user->isLoggedIn()) {
                     $user->update(array(
                         'email' => Input::get('email'),
                         'firstname' => Input::get('firstname'),
-                        'lastname' => Input::get('lastname')
+                        'lastname' => Input::get('lastname'),
+                        'receive_emails' => (Input::get('receiveemails') === 'on' ? 1 : 0)
                     ));
                 } catch (Exception $e) {
                     die($e->getMessage());

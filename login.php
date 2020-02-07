@@ -1,6 +1,12 @@
 <?php
 require_once 'core/init.php';
 
+$user = new User();
+if($user->isLoggedIn())
+{
+    Redirect::to('profile.php');
+}
+
 if(Input::exists()) {
     if(Token::check(Input::get('token'))) {
         $validate = new Validate();
@@ -46,6 +52,9 @@ if(Input::exists()) {
   <link href="images/webclip.png" rel="apple-touch-icon">
 </head>
 <body class="body-2">
+<div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
+    <div class="container w-container"><a href="index.php" class="brand w-nav-brand"><img src="images/logo.png" alt="" class="image" width="48" height="48"><h2 class="heading-22">Rusty's Hosting</h2></a></div>
+  </div>
   <div class="main">
     <div class="form-block-3 w-form">
       <form id="email-form" action="" method="post">
@@ -58,6 +67,7 @@ if(Input::exists()) {
         <input type="checkbox" id="remember" name="remember" class="w-checkbox-input">
         <input type="hidden" id="token" name="token" value="<?php echo Token::generate(); ?>">
         <span class="w-form-label">Remember me?</span><span class="w-form-label"><a style="margin-left: 10px;" href="forgottenpassword.php">Forgotten Password?</a></span></label>
+        <label><span class="w-form-label"><a href="register.php">Don't have an account?</a></span></label>
         <input type="submit" value="Login" class="submit-button-2 w-button"></form>
     </div>
   </div>
