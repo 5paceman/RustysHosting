@@ -23,8 +23,8 @@ $GLOBALS['config'] = array (
         'public_api_key' => 'pk_test_ulFsHot2IXRDChrayq0u7Jrt001mkBXhBx',
         'secret_api_key' => 'sk_test_seqxgzLOv4mFd55rY56dLNLP00evpvrV3T',
         'signing_secret' => 'whsec_r91TSCA0wATHbCT0g292SHed68gT0Zvo',
-        'success_page' => 'http://46594cf8.ngrok.io/profile.php',
-        'cancel_page' => 'http://46594cf8.ngrok.io/profile.php'
+        'success_page' => 'https://rustyhosting.io/profile.php',
+        'cancel_page' => 'https://rustyhosting.io/profile.php'
     ),
     'email' => array(
         'smtp_host' => "smtp.office365.com",

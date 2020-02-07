@@ -27,7 +27,7 @@
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	border-bottom: 2px solid #cd412b;
-	background-image: url('/images/rust-dome.png');
+	background-image: url('/images/rust-dome.webp');
 	background-position: 0px 0px;
 	background-size: cover;
 }
@@ -158,7 +158,7 @@
 	border-width: 1px 1px 2px;
 	border-color: #000 #000 #cd412b;
 	background-color: #fff;
-	background-image: url('/images/20191212190723_1.jpg');
+	background-image: url('/images/20191212190723_1.webp');
 	background-position: 0px 0px;
 	background-size: cover;
 }

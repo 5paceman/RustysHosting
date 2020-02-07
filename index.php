@@ -119,25 +119,25 @@ require_once 'core/init.php';
   <div id="plans" class="plans">
     <h1 class="plans-heading">Plans</h1>
     <div class="plan-item">
-      <h2 class="plan-item-heading">Wood</h2><img src="images/wood-icon.png" width="128" height="128" srcset="images/wood-icon-p-500.png 500w, images/wood-icon.png 512w" sizes="128px" alt="" class="plan-item-icon">
+      <h2 class="plan-item-heading">Wood</h2><img src="images/wood-icon.webp" width="128" height="128" srcset="images/wood-icon-p-500.png 500w, images/wood-icon.png 512w" sizes="128px" alt="" class="plan-item-icon">
       <div class="plan-item-features"><span class="plan-item-icons"> </span>4GB RAM<br><span class="plan-item-icons"></span> 3.5GHz+ CPU<br><span class="plan-item-icons"></span> Unlimited Player Slots<br><span class="plan-item-icons"> </span>10GB Backup Storage<br><span class="plan-item-icons"> </span>1Gbps Network Connection<br><span class="plan-item-icons"> </span>15GB SSD Storage<br></div>
       <h3 class="plan-item-cost">$14</h3><a href="login.php" class="plan-item-cta w-button">Purchase</a></div>
     <div class="plan-item">
-      <h2 class="plan-item-heading">Stone</h2><img src="images/stone.png" width="128" height="128" alt="" class="plan-item-icon">
+      <h2 class="plan-item-heading">Stone</h2><img src="images/stone.webp" width="128" height="128" alt="" class="plan-item-icon">
       <div class="plan-item-features"><span class="plan-item-icons"> </span>6GB RAM<br><span class="plan-item-icons"></span> 3.5GHz+ CPU<br><span class="plan-item-icons"></span> Unlimited Player Slots<br><span class="plan-item-icons"> </span>15GB Backup Storage<br><span class="plan-item-icons"> </span>1Gbps Network Connection<br><span class="plan-item-icons"> </span>20GB SSD Storage<br></div>
       <h3 class="plan-item-cost">$18</h3><a href="login.php" class="plan-item-cta w-button">Purchase</a></div>
     <div class="plan-item">
-      <h2 class="plan-item-heading">Metal</h2><img src="images/metal.png" width="128" height="128" alt="" class="plan-item-icon">
+      <h2 class="plan-item-heading">Metal</h2><img src="images/metal.webp" width="128" height="128" alt="" class="plan-item-icon">
       <div class="plan-item-features"><span class="plan-item-icons"> </span>8GB RAM<br><span class="plan-item-icons"></span> 3.5GHz+ CPU<br><span class="plan-item-icons"></span> Unlimited Player Slots<br><span class="plan-item-icons"> </span>20GB Backup Storage<br><span class="plan-item-icons"> </span>1Gbps Network Connection<br><span class="plan-item-icons"> </span>35GB SSD Storage<br></div>
       <h3 class="plan-item-cost">$24</h3><a href="login.php" class="plan-item-cta w-button">Purchase</a></div>
     <div class="plan-item">
-      <h2 class="plan-item-heading">C4</h2><img src="images/c4.png" width="128" height="128" alt="" class="plan-item-icon">
+      <h2 class="plan-item-heading">C4</h2><img src="images/c4.webp" width="128" height="128" alt="" class="plan-item-icon">
       <div class="plan-item-features"><span class="plan-item-icons"> </span>12GB RAM<br><span class="plan-item-icons"></span> 3.5GHz+ CPU<br><span class="plan-item-icons"></span> Unlimited Player Slots<br><span class="plan-item-icons"> </span>30GB Backup Storage<br><span class="plan-item-icons"> </span>1Gbps Network Connection<br><span class="plan-item-icons"> </span>50GB SSD Storage<br></div>
       <h3 class="plan-item-cost">$38</h3><a href="login.php" class="plan-item-cta w-button">Purchase</a></div>
   </div>
   <div class="server-specs">
     <h2 class="heading-23">Fast Rust Servers. That&#x27;s a fact.</h2>
-    <div class="server-specs-message"><img src="images/connector-icon.png" alt="" class="image-2">
+    <div class="server-specs-message"><img src="images/connector-icon.webp" alt="" class="image-2">
       <div class="text-block-8">Disconnects, Lag, Rubberbanding. They all describe one thing, poor performing Rust Servers. Most of the time this is caused by poor network infrastructure or slow CPUs. We can guarantee that our hosts won&#x27;t experience those problems. We promise to only use fast hardware as well as not to overburden hosts with too many users.</div>
     </div>
     <div class="server-specs-features">
