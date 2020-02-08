@@ -61,7 +61,6 @@ $token = Token::generate();
         </div>
       </div>
       <div class="services">
-
         <h3 class="heading-10">Servers</h3>
         <div class="form-block-5 w-form">
           <form action="purchase.php" method="POST" class="form-2">
