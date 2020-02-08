@@ -32,7 +32,7 @@ if(Input::exists() && Token::check(Input::get('token'))) {
         'Lastname' => array(
             'required' => true
         ),
-        'receiveemails' => array(
+        'comms' => array(
             'required' => true
         )
     ));
@@ -51,7 +51,7 @@ if(Input::exists() && Token::check(Input::get('token'))) {
                 'group' => 2,
                 'firstname' => Input::get('Firstname'),
                 'lastname' => Input::get('Lastname'),
-                'receive_emails' => (Input::get('receiveemails') === 'on' ? 1 : 0)
+                'receive_emails' => (Input::get('comms') === 'on' ? 1 : 0)
             ));
             Email::getInstance()->sendEmail(Input::get('email'), "New Registration", "new-account", array(
                 'name' => Input::get('firstname')
@@ -137,9 +137,8 @@ if(Input::exists() && Token::check(Input::get('token'))) {
         <label for="email">Email</label>
         <input type="text" class="text-field-3 w-input" name="email" id="email"autocomplete="on" value="<?php echo escape(Input::get('email')); ?>">
         <label class="w-checkbox checkbox-field">
-        <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox w--redirected-checked"></div>
-        <input type="checkbox" id="receiveemails" name="receiveemails" checked style="opacity:0;position:absolute;z-index:-1"><span for="receiveemails" class="w-form-label"><strong class="bold-text">Receive emails regarding my hosting services?</strong></span>
-        </label>
+        <div class="w-checkbox-input w-checkbox-input"></div>
+        <input type="checkbox" id="comms" name="comms"><span for="receiveemails" class="w-form-label"><strong class="bold-text">Receive marketing/communication emails</strong></span></label>
         <label for="Firstname">First Name</label>
         <input type="text" class="text-field-3 w-input" name="Firstname" id="Firstname" autocomplete="on">
         <label for="Lastname">Last Name</label>
@@ -150,5 +149,6 @@ if(Input::exists() && Token::check(Input::get('token'))) {
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
   <script src="js/register.js"></script>
+  <script src="js/webflow.js"></script>
 </body>
 </html>

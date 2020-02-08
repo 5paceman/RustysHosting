@@ -52,9 +52,8 @@ $token = Token::generate();
         <h3 class="heading-9">Account Settings</h3>
         <div class="info-form">
           <h4 class="heading-13">Info</h4>
-          <form id="account-settings" method="POST" action="update.php" name="account-settings" data-name="account-settings"><label for="Firstname">First Name</label><input type="text" class="settings-text-input w-input" maxlength="256" name="Firstname" data-name="Firstname" id="Firstname"><label for="lastname">Last Name</label><input type="text" maxlength="256" name="lastname" data-name="lastname" id="lastname" class="settings-text-input w-input"><label for="email">Email</label><input type="email" maxlength="256" name="email" data-name="email" id="email" class="settings-text-input w-input"><label class="w-checkbox checkbox-field">
-                        <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox <?php echo ($user->data()->receive_emails === "1" ? "w--redirected-checked" : ""); ?>"></div>
-                        <input type="checkbox" id="receiveemails" name="receiveemails" data-name="receiveemails" <?php echo ($user->data()->receive_emails === "1" ? "checked" : "");  ?> style="opacity:0;position:absolute;z-index:-1"><span for="receiveemails" class="w-form-label"><strong class="bold-text">Receive emails</strong></span></label><input type="submit" value="Update" data-wait="Please wait..." class="submit-button-3 w-button"></form>
+          <form id="account-settings" method="POST" action="update.php" name="account-settings" data-name=""><label for="Firstname">First Name</label><input type="text" class="settings-text-input w-input" maxlength="256" name="Firstname" data-name="Firstname" id="Firstname"><label for="lastname">Last Name</label><input type="text" maxlength="256" name="lastname" data-name="lastname" id="lastname" class="settings-text-input w-input"><label for="email">Email</label><input type="email" maxlength="256" name="email" data-name="email" id="email" class="settings-text-input w-input"><label class="w-checkbox checkbox-field">
+          <label class="w-checkbox checkbox-field"><div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div><input type="checkbox" id="receiveemails" name="receiveemails" data-name="receiveemails" style="opacity:0;position:absolute;z-index:-1"><span for="receiveemails" class="w-form-label"><strong class="bold-text">Marketing/Communication Emails</strong></span></label><input type="submit" value="Update" data-wait="Please wait..." class="submit-button-3 w-button"></form>
         </div>
         <div class="password-form">
           <h4 class="heading-13">Update Password</h4>
@@ -77,10 +76,10 @@ $token = Token::generate();
               <option value="4">USA East</option>
             </select>
             <select id="planId" name="planId" data-name="plan" class="w-select">
-              <option value="1">12$ Wood - 20-30 Slots</option>
-              <option value="2">16$ Stone - 30-50 Slots</option>
+              <option value="1">14$ Wood - 20-30 Slots</option>
+              <option value="2">18$ Stone - 30-50 Slots</option>
               <option value="3">24$ Metal - 50-100 Slots</option>
-              <option value="4">32$ Kevlar - 100+ Slots</option>
+              <option value="4">38$ Kevlar - 100+ Slots</option>
             </select>
             <input type="submit" value="Buy" class="submit-button-8 w-button">
           </form>

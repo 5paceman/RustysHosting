@@ -6,9 +6,9 @@ session_start();
 
 $GLOBALS['config'] = array (
     'mysql' => array(
-        'host' => '127.0.0.1',
-        'username' => 'admin-tj',
-        'password' => 'S3cur1tyisn0taj0k356332019',
+        'host' => 'localhost',
+        'username' => 'webserver',
+        'password' => 'S3cur3D4t4ba53!?',
         'db' => 'hosting'
     ),
     'remember' => array(
@@ -20,18 +20,18 @@ $GLOBALS['config'] = array (
         'token_name' => 'token' 
     ),
     'stripe' => array(
-        'public_api_key' => 'pk_test_ulFsHot2IXRDChrayq0u7Jrt001mkBXhBx',
-        'secret_api_key' => 'sk_test_seqxgzLOv4mFd55rY56dLNLP00evpvrV3T',
-        'signing_secret' => 'whsec_r91TSCA0wATHbCT0g292SHed68gT0Zvo',
+        'public_api_key' => 'pk_live_d0Mkee67K7Fl7AtmdSAaRCms00XdFGfGyG',
+        'secret_api_key' => 'sk_live_HxVaRVFpvmPdU19pLOONqF1600exQwNaC0',
+        'signing_secret' => 'whsec_CmgImzjnus1bv97KIWDgaxnfqauiJ1hP',
         'success_page' => 'https://rustyhosting.io/profile.php',
         'cancel_page' => 'https://rustyhosting.io/profile.php'
     ),
     'email' => array(
         'smtp_host' => "smtp.office365.com",
         'smtp_port' => '587',
-        'username' => 'tom@socialspring.co.uk',
-        'password' => 'Gandalf56332019',
-        'email' => 'tom@socialspring.co.uk',
+        'username' => 'noreply@rustyshosting.io',
+        'password' => 'N0R3ply3m41l!?',
+        'email' => 'noreply@rustyshosting.io',
         'email_name' => 'Rustys Hosting',
     ),
     'redis' => array(
