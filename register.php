@@ -84,6 +84,12 @@ if(Input::exists() && Token::check(Input::get('token'))) {
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+     <script>
+       function onSubmit(token) {
+         document.getElementById("email-form").submit();
+       }
+     </script>
   <style>
         meter {
     /* Reset the default appearance */
@@ -144,7 +150,8 @@ if(Input::exists() && Token::check(Input::get('token'))) {
         <label for="Lastname">Last Name</label>
         <input type="text" class="text-field-3 w-input" name="Lastname" id="Lastname" autocomplete="on">
         <input type="hidden" id="token" name="token" value="<?php echo Token::generate(); ?>">
-        <input type="submit" value="Register" class="submit-button-2 w-button"></form>
+        <button value="Register" data-sitekey="<?php echo Config::get("recaptcha/site"); ?>" data-callback="onSubmit" class="g-recaptcha submit-button-2 w-button">Register</button>
+    </form>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
