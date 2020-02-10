@@ -16,8 +16,9 @@ class Recaptcha {
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
         $response = curl_exec($curl);
-        $jsonObj = json_decode($response, true);
+        echo $response;
+        $jsonObj = json_decode($response);
 
-        return $jsonObj->{'success'};
+        return $jsonObj->success;
     }
 }
