@@ -13,17 +13,23 @@ if(Input::exists()) {
         $validation = $validate->check(array(
             'username' => array ('required' => true),
             'password' => array ('required' => true),
+            'g-recaptcha-response' => array('required' => true)
         ));
 
         if($validation->passed()) {
-            $user = new User();
-            $remember = (Input::get('remember') === 'on') ? true : false;
-            $login = $user->login(Input::get('username'), Input::get('password'), $remember);
+            if(Recaptcha::verify(Input::get('g-recaptcha-response')))
+            {
+                $user = new User();
+                $remember = (Input::get('remember') === 'on') ? true : false;
+                $login = $user->login(Input::get('username'), Input::get('password'), $remember);
 
-            if($login) {
-                Redirect::to('profile.php');
+                if($login) {
+                    Redirect::to('profile.php');
+                } else {
+                    echo 'failed';
+                }
             } else {
-                echo 'failed';
+                echo 'Recaptcha failed.';
             }
         } else {
             foreach($validation->errors() as $error) {
