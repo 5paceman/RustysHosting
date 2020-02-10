@@ -18,6 +18,6 @@ class Recaptcha {
         $response = curl_exec($curl);
         $jsonObj = json_decode($response);
 
-        return $jsonObj->success;
+        return $jsonObj->{'success'};
     }
 }
