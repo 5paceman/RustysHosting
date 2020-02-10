@@ -13,9 +13,9 @@ if(url.indexOf("#accountsettings") > -1)
     $("#faq-btn").trigger('click');
 }
 
-$("#account-settings").submit(ajaxForm);
-$("#password-form").submit(ajaxForm);
-$("#support-form").submit(ajaxForm);
+$("#account-settings-form").on('submit', ajaxForm);
+$("#update-password").on('submit', ajaxForm);
+$("#support-form").on('submit', ajaxForm);
 
 function ajaxForm(formEvent)
 {
@@ -29,6 +29,9 @@ function ajaxForm(formEvent)
         url: url,
         data: form.serialize(),
         success: function(data) {
+            form.after(data);
+        },
+        error: function(data) {
             form.after(data);
         }
     });

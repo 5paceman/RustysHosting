@@ -28,11 +28,11 @@ if($user->isLoggedIn() && $user->isAdmin())
             echo json_encode($json);
         } else if($statistic === "logs")
         {
-            $logs = Redis::getInstance()->getList("reporting:machines:events");
+            $logs = array_reverse(Redis::getInstance()->getList("reporting:machines:events"));
             echo '<pre>';
             foreach($logs as $line)
             {
-                print_r($line);
+                echo $line.'<br/>';
             }
             echo '</pre>';
         }

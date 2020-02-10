@@ -716,12 +716,16 @@ table.serviceTable thead th {
   background-color: #cd412b;
 }
 
+.bold-text-2 {
+  margin-left: 10px;
+}
+
 .checkbox-field {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -1665,6 +1669,7 @@ pre {
   background-color: #5f5f63;
   color: #fff;
   text-align: left;
+  overflow: scroll;
 }
 
 .heading-21 {

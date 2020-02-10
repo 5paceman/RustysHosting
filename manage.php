@@ -159,7 +159,7 @@ if($user->isLoggedIn())
                           <label for="headerimage">Header Image URL</label>
                           <input type="text" class="config-input w-input" maxlength="256" value="<?php echo $service->config()->header_image; ?>" name="headerimage" data-name="headerimage" id="headerimage">
                           <label for="service-password">Service Password</label>
-                          <input type="text" class="config-input w-input" value="<?php echo $service->data()->service_password; ?>" id="service-password">
+                          <input type="text" class="config-input w-input" value="<?php echo $service->data()->service_password; ?>" id="service-password" name="service-password">
                           <input type="submit" value="Update" class="submit-button-7 w-button">
                       </form></div>
                     </div>

@@ -50,6 +50,12 @@ if(Input::exists()) {
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+     <script>
+       function onSubmit(token) {
+         document.getElementById("email-form").submit();
+       }
+     </script>
 </head>
 <body class="body-2">
 <div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
@@ -68,7 +74,7 @@ if(Input::exists()) {
         <input type="hidden" id="token" name="token" value="<?php echo Token::generate(); ?>">
         <span class="w-form-label">Remember me?</span><span class="w-form-label"><a style="margin-left: 10px;" href="forgottenpassword.php">Forgotten Password?</a></span></label>
         <label><span class="w-form-label"><a href="register.php">Don't have an account?</a></span></label>
-        <input type="submit" value="Login" class="submit-button-2 w-button"></form>
+        <button value="Login" data-sitekey="<?php echo Config::get("recaptcha/site"); ?>" data-callback="onSubmit" class="g-recaptcha submit-button-2 w-button">Login</button></form>
     </div>
   </div>
 </body>

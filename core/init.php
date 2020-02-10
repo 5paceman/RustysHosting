@@ -7,8 +7,8 @@ session_start();
 $GLOBALS['config'] = array (
     'mysql' => array(
         'host' => 'localhost',
-        'username' => 'webserver',
-        'password' => 'S3cur3D4t4ba53!?',
+        'username' => 'admin-tj',
+        'password' => 'S3cur1tyisn0taj0k356332019',
         'db' => 'hosting'
     ),
     'remember' => array(
@@ -18,6 +18,10 @@ $GLOBALS['config'] = array (
     'session' => array(
         'session_name' => 'user',
         'token_name' => 'token' 
+    ),
+    'recaptcha' => array(
+        'secret' => "6LfyntcUAAAAAFh4PO_oDKePNZDkBVSz2N10SJxv",
+        'site' => "6LfyntcUAAAAAI4ZJZbj2eRZkccIybhEgL0KR8pH"
     ),
     'stripe' => array(
         'public_api_key' => 'pk_live_d0Mkee67K7Fl7AtmdSAaRCms00XdFGfGyG',
