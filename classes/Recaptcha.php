@@ -11,6 +11,7 @@ class Recaptcha {
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
         curl_setopt($curl, CURLOPT_POST, count($data));
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
@@ -19,6 +20,8 @@ class Recaptcha {
         echo $response;
         $jsonObj = json_decode($response);
 
+
+        curl_close($curl);
         return $jsonObj->success;
     }
 }
