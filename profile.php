@@ -235,7 +235,7 @@ $token = Token::generate();
                         <h2>Logging a support request</h2>
                         <p>‍</p>
                         <p>Once a ticket has been raised all communication will be via email, please make sure you have an up to date email address before raising a ticket.</p>
-                        <p>Please ensure you read through the FAQ before submitting a support request. Please also thoroughly read through the below before raising a ticket, its important to pick the correct urgency, repeated failure to pick the correct urgency will mean all future requests will automatically be moved to low urgency regardless of impact to your service.</p>
+                        <p>Please ensure you read through the FAQ before submitting a support request. Please also <b>thoroughly</b> read through the below before raising a ticket, its important to pick the correct urgency, repeated failure to pick the correct urgency will mean all future requests will automatically be moved to low urgency regardless of impact to your service.</p>
                         <h4>Urgency</h4>
                         <ul>
                             <li><strong>High - </strong>24 hour response time, for support requests that need fixing ASAP such as unable to FTP or turn your server on</li>
