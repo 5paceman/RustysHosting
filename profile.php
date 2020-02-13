@@ -14,6 +14,15 @@ $token = Token::generate();
     <html data-wf-page="5dd1c386c5a7ed6b905e4a0b" data-wf-site="5dd179360336825db0f49358">
 
     <head>
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158342655-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-158342655-1');
+        </script>
         <meta charset="utf-8">
         <title>Profile</title>
         <meta content="Profile" property="og:title">

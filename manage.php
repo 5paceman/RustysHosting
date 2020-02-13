@@ -45,6 +45,15 @@ if($user->isLoggedIn())
 <html data-wf-page="5dd67627501842721c02381e" data-wf-site="5dd179360336825db0f49358">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158342655-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158342655-1');
+    </script>
     <meta charset="utf-8">
     <title>Manage Service</title>
     <meta content="Manage Service" property="og:title">
