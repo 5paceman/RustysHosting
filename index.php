@@ -118,7 +118,7 @@ require_once 'core/init.php';
   <div id="plans" class="plans">
     <h1 class="plans-heading">Plans</h1>
     <div class="plan-item">
-      <h2 class="plan-item-heading">Wood</h2><img src="images/wood-icon.webp" width="128" height="128" srcset="images/wood-icon-p-500.png 500w, images/wood-icon.png 512w" sizes="128px" alt="" class="plan-item-icon">
+      <h2 class="plan-item-heading">Wood</h2><img src="images/wood-icon.webp" width="128" height="128" srcset="images/wood-icon.webp 500w, images/wood-icon.png 512w" sizes="128px" alt="" class="plan-item-icon">
       <div class="plan-item-features"><span class="plan-item-icons"> </span>4GB RAM<br><span class="plan-item-icons"></span> 3.5GHz+ CPU<br><span class="plan-item-icons"></span> Unlimited Player Slots<br><span class="plan-item-icons"> </span>10GB Backup Storage<br><span class="plan-item-icons"> </span>1Gbps Network Connection<br><span class="plan-item-icons"> </span>15GB SSD Storage<br></div>
       <h3 class="plan-item-cost">$14</h3><a href="login.php" class="plan-item-cta w-button">Purchase</a></div>
     <div class="plan-item">
