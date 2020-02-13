@@ -8,6 +8,15 @@ require_once 'core/init.php';
 <!DOCTYPE html>
 <html data-wf-page="5e30cd0d699b6059d071c3e0" data-wf-site="5dd179360336825db0f49358">
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158342655-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-158342655-1');
+  </script>
   <meta charset="utf-8">
   <title>Rusty's Hosting | Rust Server Hosting</title>
   <meta content="Index2" property="og:title">
