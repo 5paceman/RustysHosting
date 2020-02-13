@@ -21,11 +21,10 @@ require_once 'core/init.php';
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
-  <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body class="body-7">
   <div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
-    <div class="container w-container"><a href="#" class="brand w-nav-brand"><img src="images/logo.png" height="48" width="48" alt="" class="image"><h2 class="heading-22">Rusty&#x27;s Hosting</h2></a>
+    <div class="container w-container"><a href="#" class="brand w-nav-brand"><img src="images/logo.webp" height="48" width="48" alt="" class="image"><h2 class="heading-22">Rusty&#x27;s Hosting</h2></a>
       <nav role="navigation" class="nav-menu w-nav-menu"><a href="#plans" class="nav-link w-nav-link">Plans</a><a href="#control-panel" class="nav-link w-nav-link">Features</a><a href="register.php" class="nav-link w-nav-link">Sign Up</a></nav>
       <div class="w-nav-button">
         <div class="w-icon-nav-menu"></div>
@@ -163,6 +162,7 @@ require_once 'core/init.php';
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
-    <link rel="stylesheet" type="text/css" href="//wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="//wpcc.io/lib/1.0.2/cookieconsent.min.js"></script><script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#222222","text":"#ffffff","border":"#b4eae4"},"button":{"background":"#b4eae4","text":"#000000"}},"position":"bottom","content":{"href":"https://rustyshosting.io/cookie"}})});</script>
+  <link rel="stylesheet" type="text/css" href="//wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="//wpcc.io/lib/1.0.2/cookieconsent.min.js"></script><script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#222222","text":"#ffffff","border":"#b4eae4"},"button":{"background":"#b4eae4","text":"#000000"}},"position":"bottom","content":{"href":"https://rustyshosting.io/cookie"}})});</script>
+  <script src="https://js.stripe.com/v3/"></script>
 </body>
 </html>

@@ -22,6 +22,8 @@ $token = Token::generate();
         <link href="css/normalize.css" rel="stylesheet" type="text/css">
         <link href="css/webflow.css" rel="stylesheet" type="text/css">
         <link href="css/profile.css" rel="stylesheet" type="text/css">
+        <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+        <link href="images/webclip.png" rel="apple-touch-icon">
         <link href="css/rustyshosting.webflow.css" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
         <script type="text/javascript">
