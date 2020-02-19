@@ -126,6 +126,21 @@ if(!$user->isAdmin())
         </div>
         <div data-w-id="34e82d35-8825-51ef-b459-e1c05c90e599" class="services-content content-item-fill">
             <h3 class="heading-20">Service's</h3>
+            <div class="form-block-5 w-form">
+                <form action="service.php" method="post" class="form-2">
+                    <input name="id" type="number" id="id">
+                    <select id="planId" name="planId" data-name="plan" class="w-select">
+                        <option value="1">14$ Wood - 20-30 Slots</option>
+                        <option value="2">18$ Stone - 30-50 Slots</option>
+                        <option value="3">24$ Metal - 50-100 Slots</option>
+                        <option value="4">38$ Kevlar - 100+ Slots</option>
+                    </select>
+                    <select id="regionId" name="regionId" data-name="region" class="w-select">
+                        <option value="1">West Europe</option>
+                    </select>
+                    <input type="submit" value="Create" class="submit-button-8 w-button">
+                </form>
+            </div>
             <table id="servicesTable" class="serviceTable">
                 <thead>
                     <tr>
