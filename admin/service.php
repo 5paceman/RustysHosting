@@ -19,12 +19,12 @@ if(Input::exists())
 {
     if(Input::get('id') && Input::get('planId') && Input::get('regionId'))
     {
-        $plans = $db->get('plans', array('id', '=', Input::get('planId')));
+        $plans = DB::getInstance()->get('plans', array('id', '=', Input::get('planId')));
         if($plans->count())
         {
             $service = new Service();
             $service->create(Input::get('planId'), Input::get('id'), 0, 1, Input::get('regionId'));
-            Redirect::to("/admin");
+            Redirect::to("index.php");
         }
     }
 }
