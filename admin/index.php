@@ -1,5 +1,5 @@
 <?php
-chdir("/var/www/");
+chdir("/var/www/rustyshosting.io/");
 require_once 'core/init.php';
 require_once 'functions/sanitize.php';
 
