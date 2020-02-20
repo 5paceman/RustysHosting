@@ -76,7 +76,7 @@ if($user->isLoggedIn())
         var serverID = "<?php echo $service->data()->service_id; ?>";
         var serverPort = <?php echo ($service->port() + 1); ?>;
         var serverPassword = "<?php echo $service->data()->service_password; ?>";
-        var wsString = "ws://" + serverIp + ":" + serverPort + "/" + serverPassword;
+        var wsString = "http://" + serverIp + ":" + serverPort + "/" + serverPassword;
     </script>
         
     <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
