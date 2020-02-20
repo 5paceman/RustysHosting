@@ -39,7 +39,7 @@ $(".server-command").on('click touchend', function(e) {
 var websocket = null;
 
 function connect() {
-    websocket = new WebSocket(wsString);
+    websocket = new WebSocket("wss://rustyshosting.io:8081?address=" + wsString);
     websocket.onmessage = onMessage; 
 }
 
