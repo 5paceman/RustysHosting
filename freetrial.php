@@ -1,4 +1,6 @@
 <?php
+require_once 'core/init.php';
+
 
 $user = new User();
 if(!$user->isLoggedIn()) {
@@ -13,8 +15,8 @@ if(!$user->isLoggedIn()) {
         DB::getInstance()->update('users', $user->data()->id, array(
             'free_trial_offer' => 1
         ));
-        echo "Service created.";
+        Redirect::to('profile.php');
     } else {
-        echo "No region.";
+        Redirect::to('profile.php');
     }
 }

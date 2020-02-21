@@ -155,7 +155,7 @@ require_once 'core/init.php';
         <p><span class="plan-item-icons"></span> Datacenter Grade 2TB NVMe SSDs</p>
         <p><span class="plan-item-icons"> </span> No Virtualization.</p>
         <p><span class="plan-item-icons"> </span>Fast and Reliable Backup Storage.</p>
-        <p><span class="plan-item-icons"> </span> 1Gbit/s DDoS Protecte Network</p>
+        <p><span class="plan-item-icons"> </span> 1Gbit/s DDoS Protected Network</p>
       </div>
     </div>
   </div>
