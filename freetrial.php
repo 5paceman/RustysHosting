@@ -11,7 +11,7 @@ if(!$user->isLoggedIn()) {
         echo "You've already used your free trial offer.";
     } else if(!empty(Input::get('region'))){
         $service = new Service();
-        $service->create(1 /* Basic Plan */, $user->data()->id, "", 1, Input::get('region'));
+        $service->create(1 /* Basic Plan */, $user->data()->id, "", 1, Input::get('region'), "+1 day");
         DB::getInstance()->update('users', $user->data()->id, array(
             'free_trial_offer' => 1
         ));

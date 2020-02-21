@@ -25,7 +25,8 @@ function ajaxForm(formEvent)
         url: url,
         data: form.serialize(),
         success: function(data) {
-            form.after(data);
+            $("div.FormOutput").remove();
+            form.after("<div class=\"FormOutput\">" + data + "</div>");
         }
     });
 }

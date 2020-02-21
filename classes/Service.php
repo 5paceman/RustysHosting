@@ -60,9 +60,9 @@ class Service {
         }
     }
 
-    public function create($plan_id, $user_id, $stripe_id, $game_id, $region_id) {
+    public function create($plan_id, $user_id, $stripe_id, $game_id, $region_id, $expiry = "+1 month") {
         $machine_id = Machine::getLeastUsedMachine($region_id);
-        $datetime = new DateTime("+1 month");
+        $datetime = new DateTime($expiry);
         $expiry = $datetime->format('Y-m-d H:i:s');
         $port = Machine::getNextPort($game_id, $machine_id);
         $service_id = generateRandomString(12, false);
