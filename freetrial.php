@@ -17,6 +17,6 @@ if(!$user->isLoggedIn()) {
         ));
         Redirect::to('profile.php');
     } else {
-        Redirect::to('profile.php');
+        echo "Missing region?";
     }
 }
