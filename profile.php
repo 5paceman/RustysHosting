@@ -114,7 +114,7 @@ $token = Token::generate();
                             <label for="regionId">Region</label>
                             <input type="hidden" name="planId" value="1" />
                             <input type="hidden" name="token" value="<?php echo $token ?>" />
-                            <select id="regionId" name="regionId" data-name="region" class="w-select">
+                            <select id="region" name="region" data-name="region" class="w-select">
                                 <option value="1">West Europe</option>
                             </select>
                             <select id="planId" name="planId" data-name="plan" class="w-select">
