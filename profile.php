@@ -114,7 +114,7 @@ $token = Token::generate();
                             <label for="regionId">Region</label>
                             <input type="hidden" name="planId" value="1" />
                             <input type="hidden" name="token" value="<?php echo $token ?>" />
-                            <select id="region" name="region" data-name="region" class="w-select">
+                            <select id="regionId" name="regionId" data-name="region" class="w-select">
                                 <option value="1">West Europe</option>
                             </select>
                             <select id="planId" name="planId" data-name="plan" class="w-select">
@@ -135,11 +135,8 @@ $token = Token::generate();
                             <div class="free-trial-text">Start your free 24 hour trial, no credit/debit card details required!</div>
                             <div class="free-trial-form w-form">
                                 <form id="free-trial" action="freetrial.php" method="POST" class="free-trial-form-content">
-                                    <select id="regionid" name="regionid" data-name="regionid" class="ft-form-select w-select">
+                                    <select id="region" name="region" data-name="region" class="ft-form-select w-select">
                                         <option value="1">West Europe</option>
-                                        <option value="2">USA West</option>
-                                        <option value="3">East Europe</option>
-                                        <option value="4">USA East</option>
                                     </select>
                                     <input type="submit" value="Start Trial" data-wait="Please wait..." class="fr-form-submit w-button">
                                 </form>

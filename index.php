@@ -19,7 +19,8 @@ require_once 'core/init.php';
   </script>
   <meta charset="utf-8">
   <title>Rusty's Hosting | Rust Server Hosting</title>
-  <meta content="Index2" property="og:title">
+  <meta content="Rustys Hosting" property="og:title">
+  <meta name="description" content="Dedicated Rust Server Hosting | We Provide Fast Rust Server Hosting With A Our Custom Rust Control Panel">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
@@ -30,6 +31,10 @@ require_once 'core/init.php';
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+  <meta property=”og:url” content="http://rustyshosting.io" />
+  <meta property=”og:type” content="website" />
+  <meta property=”og:description” content="Dedicated Rust Server Hosting | We Provide Fast Rust Server Hosting With A Our Custom Rust Control Panel" />
+  <meta property=”og:image” content="images/webclip.png" />
 </head>
 <body class="body-7">
   <div data-collapse="medium" data-animation="default" data-duration="400" class="navbar w-nav">
