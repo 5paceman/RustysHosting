@@ -9,7 +9,7 @@ if(!$user->isLoggedIn()) {
     if($user->data()->free_trial_offer)
     {
         echo "You've already used your free trial offer.";
-    } else if(Input::get('region')){
+    } else if(!empty(Input::get('region'))){
         $service = new Service();
         $service->create(1 /* Basic Plan */, $user->data()->id, "", 1, Input::get('region'));
         DB::getInstance()->update('users', $user->data()->id, array(
