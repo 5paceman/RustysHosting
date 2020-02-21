@@ -13,5 +13,8 @@ if(!$user->isLoggedIn()) {
         DB::getInstance()->update('users', $user->data()->id, array(
             'free_trial_offer' => 1
         ));
+        echo "Service created.";
+    } else {
+        echo "No region.";
     }
 }

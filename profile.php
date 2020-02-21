@@ -121,7 +121,7 @@ $token = Token::generate();
                                 <option value="1">14$ Wood - 20-30 Slots</option>
                                 <option value="2">18$ Stone - 30-50 Slots</option>
                                 <option value="3">24$ Metal - 50-100 Slots</option>
-                                <option value="4">38$ Kevlar - 100+ Slots</option>
+                                <option value="4">38$ C4 - 100+ Slots</option>
                             </select>
                             <input type="submit" value="Buy" class="submit-button-8 w-button">
                         </form>
