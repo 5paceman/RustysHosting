@@ -80,7 +80,16 @@ if(Input::exists()) {
         <input type="hidden" id="token" name="token" value="<?php echo Token::generate(); ?>">
         <span class="w-form-label">Remember me?</span><span class="w-form-label"><a style="margin-left: 10px;" href="forgottenpassword.php">Forgotten Password?</a></span></label>
         <label><span class="w-form-label"><a href="register.php">Don't have an account?</a></span></label>
-        <button value="Login" data-sitekey="<?php echo Config::get("recaptcha/site"); ?>" data-callback="onSubmit" class="g-recaptcha submit-button-2 w-button">Login</button></form>
+        <button value="Login" data-sitekey="<?php echo Config::get("recaptcha/site"); ?>" data-callback="onSubmit" class="g-recaptcha submit-button-2 w-button">Login</button>
+        <?php
+            if(Input::exists() && !$validation->passed())
+            {
+                foreach($validation->errors() as $error) {
+                    echo $error."<br />";
+                }
+            }
+        ?>
+        </form>
     </div>
   </div>
 </body>
