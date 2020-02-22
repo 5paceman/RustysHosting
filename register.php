@@ -148,6 +148,7 @@ if(Input::exists() && Token::check(Input::get('token'))) {
         <input type="text" class="text-field-3 w-input" name="Lastname" id="Lastname" autocomplete="on">
         <input type="hidden" id="token" name="token" value="<?php echo Token::generate(); ?>">
         <button value="Register" data-sitekey="<?php echo Config::get("recaptcha/site"); ?>" data-callback="onSubmit" class="g-recaptcha submit-button-2 w-button">Register</button>
+        </br>
         <?php
             if(Input::exists() && !$validation->passed())
             {

@@ -81,6 +81,7 @@ if(Input::exists()) {
         <span class="w-form-label">Remember me?</span><span class="w-form-label"><a style="margin-left: 10px;" href="forgottenpassword.php">Forgotten Password?</a></span></label>
         <label><span class="w-form-label"><a href="register.php">Don't have an account?</a></span></label>
         <button value="Login" data-sitekey="<?php echo Config::get("recaptcha/site"); ?>" data-callback="onSubmit" class="g-recaptcha submit-button-2 w-button">Login</button>
+        <br/>
         <?php
             if(Input::exists() && !$validation->passed())
             {
