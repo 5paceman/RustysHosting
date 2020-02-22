@@ -2,11 +2,7 @@
 
 <?php
 chdir("/var/www/rustyshosting.io/");
-require_once 'vendor/autoload.php';
-
-spl_autoload_register(function ($class) {
-    require_once 'classes/'.$class.'.php';
-});
+require_once 'core/init.php';
 
 define('AKEEBAENGINE', 1);
 
@@ -38,7 +34,7 @@ foreach($services->results() as $service)
             RemoveBackup($backup->space, $backup->path);
         }
     }
-    
+
     if($size > $service->backup_size)
     {
         Redis::getInstance()->putJobToMachine($service->id, "BackupInstance.sh {$service->service_id}");
