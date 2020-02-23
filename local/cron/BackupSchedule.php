@@ -26,7 +26,7 @@ if($services->count())
     foreach($services->results() as $service)
     {
         $size = 0;
-        $backups = $DB->get('service', '=', $service->id);
+        $backups = $DB->get('backups', array('service', '=', $service->id));
         if($backups->count())
         {
             foreach($backups->results() as $backup)
