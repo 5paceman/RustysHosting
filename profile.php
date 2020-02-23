@@ -208,11 +208,11 @@ $token = Token::generate();
                     <h3 class="heading-9">FAQ</h3>
                     <div class="w-richtext">
                         <h4>How do I manage my server?</h4>
-                        <p>Click the little Cog icon next to your servers Service ID</p>
-                        <h4>How do I FTP?</h4>
-                        <p>Download a FTP client like FileZilla and use your servers IP and Service username and password as your connection details</p>
-                        <h4>How can I run commands on my server?</h4>
-                        <p>Use the Console tab of your server, simply hit Connect and then type your command in the box and hit send. For a list of server commands look <i href="https://rust.fandom.com/wiki/Server_Commands">here</i></p>
+                        <p>Click the Cog(gear) icon next to the left of the server's Service ID.</p>
+                        <h4>How do I FTP(File Transfer Protocol)?</h4>
+                        <p>Download a FTP client (for example FileZilla) and use your server's IP and Service username and password as the connection details.</p>
+                        <h4>How can I run commands on the server?</h4>
+                        <p>Use the "Console" tab on the server manage page. Select "Connect" and then type the command in the box and select "Send". For a list of all possible server commands look here: <a href="https://rust.fandom.com/wiki/Server_Commands">Server Commands.</a></p>
                         <h4>How do Backups work?</h4>
                         <p>Backups are taken every hour and you have a total of 10GB storage per server. Backups are stored on an external cloud server so your server is always safely backed up. </p>
                         <h4>How do I restart/stop/start my server?</h4>
