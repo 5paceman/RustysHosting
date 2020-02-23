@@ -206,7 +206,7 @@ $token = Token::generate();
                 </div>
                 <div class="faq">
                     <h3 class="heading-9">FAQ</h3>
-                    <div class="w-richtext" style="overflow: scroll;">
+                    <div class="w-richtext" style="height: 0.6vh; overflow: scroll;">
                         <h4>How do I manage my server?</h4>
                         <p>Click the Cog(gear) icon next to the left of the server's Service ID.</p>
                         <h4>How do I FTP(File Transfer Protocol)?</h4>
