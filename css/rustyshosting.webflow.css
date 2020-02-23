@@ -410,7 +410,6 @@ table.serviceTable thead th {
 }
 
 .profile-content {
-  overflow: scroll;
   width: auto;
   min-height: 100%;
   min-width: auto;
