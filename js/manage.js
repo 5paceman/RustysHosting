@@ -168,6 +168,6 @@ function updateServerLogs()
 pingServer();
 updateServerLogs();
 
-setInterval(updateServerLogs, 300000);
-setInterval(pingServer, 30000);
+setInterval(updateServerLogs, 30000);
+setInterval(pingServer, 100);
 setInterval(checkConnection, 3000);

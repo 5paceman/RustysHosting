@@ -71,7 +71,7 @@ if(!$user->isLoggedIn()) {
                     ));
                     if($result && $serviceResult)
                     {
-                        Redis::getInstance()->putJobToMachine($service->data()->machine_id, "UpdateConfig.sh \"".Input::get('service_id')."\" \"".Input::get('hostname')."\""." \"".Input::get('worldsize')."\" \"".Input::get('seed')."\" \"".Input::get('tickrate')."\" \"".Input::get('maxplayers')."\" \"".Input::get('description')."\" \"".Input::get('headerimage')."\" ".((Input::get('globalchat') === 'on') ? "\"true\"" : "\"false\""." \"".Input::get('service-password')."\""));
+                        Redis::getInstance()->putJobToMachine($service->data()->machine_id, "UpdateConfig.sh \"".Input::get('service_id')."\" \"".Input::get('hostname')."\""." \"".Input::get('worldsize')."\" \"".Input::get('seed')."\" \"".Input::get('tickrate')."\" \"".Input::get('maxplayers')."\" \"".Input::get('description')."\" \"".Input::get('headerimage')."\" ".((Input::get('globalchat') === 'on') ? "\"true\"" : "\"false\"")." \"".Input::get('service-password')."\"");
                         echo 'Updated.';
                     } else {
                         echo 'Problem updating settings, please try again';
