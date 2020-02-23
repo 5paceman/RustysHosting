@@ -218,7 +218,7 @@ $token = Token::generate();
                         <h4>How do I restart/stop/start the server?</h4>
                         <p>On the "Information" tab there are three buttons marked with the Play(<span style="font-family: 'Fa solid 900', sans-serif;"></span>), Stop(<span style="font-family: 'Fa solid 900', sans-serif;"></span>) and Restart(<span style="font-family: 'Fa solid 900', sans-serif;"></span>) icons. Click these accordingly.</p>
                         <h4>How can I install RustIO?</h4>
-                        <p>On the "Tools" tab select the "Install" RustIO button. This will automatically install RustIO. After 10 minutes, restart the server using the Restart(<span class="list-icon"></span>) icon and RustIO should be installed.</p>
+                        <p>On the "Tools" tab select the "Install" RustIO button. This will automatically install RustIO. After 10 minutes, restart the server using the Restart(<span style="font-family: 'Fa solid 900', sans-serif;"></span>) icon and RustIO should be installed.</p>
                         <h4>How can I update my server and/or Oxide?</h4>
                         <p>On the "Tools" tab select "Install" Update Rust or "Install" Update Oxide, accordingly. It will always download the latest version of the Rust server and Oxide.</p>
                         <h4>How can I install Oxide plugins?</h4>
