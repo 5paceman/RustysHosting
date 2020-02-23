@@ -223,18 +223,16 @@ $token = Token::generate();
                         <p>On the "Tools" tab select "Install" Update Rust or "Install" Update Oxide, accordingly. It will always download the latest version of the Rust server and Oxide.</p>
                         <h4>How can I install Oxide plugins?</h4>
                         <p>Connect to the server's FTP and place the plugins in the "Plugins" folder.</p>
+                        <h4>How do I install Oxide?</h4>
+                        <p>On the service management page under the "Tools" tab is the button to install Oxide.</p>
+                        <h4>How do I uninstall Oxide?</h4>
+                        <p>On the tools tab, simply choose to Update Rust. This will update Rust in which doing so will uninstall Oxide.</p>
                         <h4>How do I purchase a server?</h4>
                         <p>On the "Servers" tab is "New Servers" box. Select a region and hit "Buy". You will be taken to the payment provider.The payment provider will request for payment details and upon completion the server will be created.</p>
                         <h4>How do I cancel a subscription?</h4>
                         <p>On the "Servers" tab, find the server that you wish to cancel the subscription from and select "Cancel". This will automatically stop billing at the end of the current expiry.</p>
                         <h4>Why does my server show it expires in a month?</h4>
                         <p>The expiry is the date and time of your next bill for each server. Unless the subscription has been canceled, you will automatically be billed at the end of the expiry period. It will then update for another 30 days.</p>
-                        <h4>How do I install Oxide?</h4>
-                        <p>On the service management page under the "Tools" tab is the button to install Oxide.</p>
-                        <h4>How do I upload Oxide plugins?</h4>
-                        <p>FTP to the server and install plugins in to the Plugins folder.</p>
-                        <h4>How do I uninstall Oxide?</h4>
-                        <p>On the tools tab, simply choose to Update Rust. This will update Rust in which doing so will uninstall Oxide.</p>
                     </div>
                 </div>
                 <div class="support">
