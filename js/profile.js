@@ -50,7 +50,7 @@ var countDownInterval = setInterval(function() {
     console.log("H: " + hours);
     console.log("M: " + minutes);
     console.log("S: " + seconds);
-    $(".popup-bold-text").html(hours + "h "+ minutes + "m " + seconds + "s ");
+    $(".popup-bold-text").html(hours + "h "+ minutes + "m " + seconds + "s remaining!");
 
     // If the count down is finished, write some text
     if (distance < 0) {

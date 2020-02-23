@@ -156,7 +156,7 @@ $token = Token::generate();
                             <div class="popup">
                                 <h1 class="popup-icon">!</h1>
                                 <div class="popup-text">Your service <b><?php echo $user_service->data()->service_id; ?></b> expires in less than 24 hours!</div>
-                                <div class="popup-bold-text" data-time="<?php echo date(" c ",$expires); ?>">24h 22m 13s</div>
+                                <div class="popup-bold-text" data-time="<?php echo date("c",$expires); ?>">24h 22m 13s</div>
                             </div>
                             <?php
               } 
