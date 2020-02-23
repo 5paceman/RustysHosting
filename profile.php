@@ -206,7 +206,7 @@ $token = Token::generate();
                 </div>
                 <div class="faq">
                     <h3 class="heading-9">FAQ</h3>
-                    <div class="w-richtext">
+                    <div class="w-richtext" style="overflow: scroll;">
                         <h4>How do I manage my server?</h4>
                         <p>Click the Cog(gear) icon next to the left of the server's Service ID.</p>
                         <h4>How do I FTP(File Transfer Protocol)?</h4>
@@ -216,9 +216,9 @@ $token = Token::generate();
                         <h4>How do "Backups" work?</h4>
                         <p>Backups are taken every half an hour and there is a maximum of 10GB of storage (per server). Backups are stored on an external cloud server, meaning the server is always safely backed up. </p>
                         <h4>How do I restart/stop/start the server?</h4>
-                        <p>On the "Information" tab there are three buttons marked with the Play( ), Stop( ) and Restart( ) icons. Click these accordingly.</p>
+                        <p>On the "Information" tab there are three buttons marked with the Play(<span class="list-icon"></span>), Stop(<span class="list-icon"></span>) and Restart(<span class="list-icon"></span>) icons. Click these accordingly.</p>
                         <h4>How can I install RustIO?</h4>
-                        <p>On the "Tools" tab select the "Install" RustIO button. This will automatically install RustIO. After 10 minutes, restart the server using the Restart( ) icon and RustIO should be installed.</p>
+                        <p>On the "Tools" tab select the "Install" RustIO button. This will automatically install RustIO. After 10 minutes, restart the server using the Restart(<span class="list-icon"></span>) icon and RustIO should be installed.</p>
                         <h4>How can I update my server and/or Oxide?</h4>
                         <p>On the "Tools" tab select "Install" Update Rust or "Install" Update Oxide, accordingly. It will always download the latest version of the Rust server and Oxide.</p>
                         <h4>How can I install Oxide plugins?</h4>
@@ -229,13 +229,13 @@ $token = Token::generate();
                         <p>On the "Servers" tab, find the server that you wish to cancel the subscription from and select "Cancel". This will automatically stop billing at the end of the current expiry.</p>
                         <h4>Why does my server show it expires in a month?</h4>
                         <p>The expiry is the date and time of your next bill for each server. Unless the subscription has been canceled, you will automatically be billed at the end of the expiry period. It will then update for another 30 days.</p>
+                        <h4>How do I install Oxide?</h4>
+                        <p>On the service management page under the "Tools" tab is the button to install Oxide.</p>
+                        <h4>How do I upload Oxide plugins?</h4>
+                        <p>FTP to the server and install plugins in to the Plugins folder.</p>
+                        <h4>How do I uninstall Oxide?</h4>
+                        <p>On the tools tab, simply choose to Update Rust. This will update Rust in which doing so will uninstall Oxide.</p>
                     </div>
-                    <h4>How do I install Oxide?</h4>
-                    <p>On the service management page under the Tools tab is the button to install Oxide</p>
-                    <h4>How do I upload Oxide plugins?</h4>
-                    <p>FTP to your server and install plugins in to the Oxide/Plugins folder</p>
-                    <h4>How do I uninstall Oxide?</h4>
-                    <p>On the tools tab, simply choose to Update Rust. This will update Rust in which doing so will uninstall Oxide</p>
                 </div>
                 <div class="support">
                     <h3 class="heading-10">Support</h3>
