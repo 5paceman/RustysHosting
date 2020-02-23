@@ -163,6 +163,10 @@ function updateServerLogs()
             $("#server-logs").html(data.replace());
         }
     });
+
+    var serverLogs = $("#server-logs");
+    if(serverLogs.length)
+        serverLogs.scrollTop(serverLogs[0].scrollHeight - serverLogs.height());
 }
 
 pingServer();
