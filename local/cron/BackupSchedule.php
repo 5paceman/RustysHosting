@@ -21,23 +21,27 @@ function RemoveBackup($space, $file)
     $connector->deleteObject($space, $file);
 }
 
-
-foreach($services->results() as $service)
+if($services->count())
 {
-    $size = 0;
-    $backups = $DB->get('service', '=', $service->id);
-    foreach($backups->results() as $backup)
+    foreach($services->results() as $service)
     {
-        $size += $backup->size;
-        if(strtotime($backup->date) < strtotime('-30 days'))
+        $size = 0;
+        $backups = $DB->get('service', '=', $service->id);
+        if($backups->count())
         {
-            RemoveBackup($backup->space, $backup->path);
+            foreach($backups->results() as $backup)
+            {
+                $size += $backup->size;
+                if(strtotime($backup->date) < strtotime('-30 days'))
+                {
+                    RemoveBackup($backup->space, $backup->path);
+                }
+            }
         }
-    }
-
-    if($size > $service->backup_size)
-    {
-        Redis::getInstance()->putJobToMachine($service->id, "BackupInstance.sh {$service->service_id}");
+        if($size > $service->backup_size)
+        {
+            Redis::getInstance()->putJobToMachine($service->id, "BackupInstance.sh {$service->service_id}");
+        }
     }
 }
 
