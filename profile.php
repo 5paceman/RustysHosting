@@ -219,14 +219,14 @@ $token = Token::generate();
                         <p>On the "Information" tab there are three buttons marked with the Play(<span style="font-family: 'Fa solid 900', sans-serif;"></span>), Stop(<span style="font-family: 'Fa solid 900', sans-serif;"></span>) and Restart(<span style="font-family: 'Fa solid 900', sans-serif;"></span>) icons. Click these accordingly.</p>
                         <h4>How can I install RustIO?</h4>
                         <p>On the "Tools" tab select the "Install" RustIO button. This will automatically install RustIO. After 10 minutes, restart the server using the Restart(<span style="font-family: 'Fa solid 900', sans-serif;"></span>) icon and RustIO should be installed.</p>
-                        <h4>How can I update my server and/or Oxide?</h4>
-                        <p>On the "Tools" tab select "Install" Update Rust or "Install" Update Oxide, accordingly. It will always download the latest version of the Rust server and Oxide.</p>
+                        <h4>How can I update my server?</h4>
+                        <p>On the "Tools" tab select "Update Rust". It will always download the latest version of the Rust server. This will also consequently remove Oxide.</p>
                         <h4>How can I install Oxide plugins?</h4>
                         <p>Connect to the server's FTP and place the plugins in the "Plugins" folder.</p>
                         <h4>How do I install Oxide?</h4>
                         <p>On the service management page under the "Tools" tab is the button to install Oxide.</p>
                         <h4>How do I uninstall Oxide?</h4>
-                        <p>On the tools tab, simply choose to Update Rust. This will update Rust in which doing so will uninstall Oxide.</p>
+                        <p>On the tools tab, click to Update Rust. This will update Rust in which doing so will uninstall Oxide.</p>
                         <h4>How do I purchase a server?</h4>
                         <p>On the "Servers" tab is "New Servers" box. Select a region and hit "Buy". You will be taken to the payment provider.The payment provider will request for payment details and upon completion the server will be created.</p>
                         <h4>How do I cancel a subscription?</h4>
