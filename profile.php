@@ -210,25 +210,25 @@ $token = Token::generate();
                         <h4>How do I manage my server?</h4>
                         <p>Click the Cog(gear) icon next to the left of the server's Service ID.</p>
                         <h4>How do I FTP(File Transfer Protocol)?</h4>
-                        <p>Download a FTP client (for example FileZilla) and use your server's IP and Service username and password as the connection details.</p>
+                        <p>Download a FTP client (for example FileZilla) and use the server's IP and Service username and password as the connection details.</p>
                         <h4>How can I run commands on the server?</h4>
                         <p>Use the "Console" tab on the server manage page. Select "Connect" and then type the command in the box and select "Send". For a list of all possible server commands look here: <a href="https://rust.fandom.com/wiki/Server_Commands">Server Commands.</a></p>
-                        <h4>How do Backups work?</h4>
-                        <p>Backups are taken every hour and you have a total of 10GB storage per server. Backups are stored on an external cloud server so your server is always safely backed up. </p>
-                        <h4>How do I restart/stop/start my server?</h4>
-                        <p>On the Information tab you have 3 buttons marked with the Play, Stop and Restart icons. Click these accordingly.</p>
-                        <h4>How can I install RustIO</h4>
-                        <p>On the Tools tab you can click the Install RustIO button. This will install RustIO for you automatically, after 10 minutes restart your server and RustIO should be installed</p>
+                        <h4>How do "Backups" work?</h4>
+                        <p>Backups are taken every half an hour and there is a maximum of 10GB of storage (per server). Backups are stored on an external cloud server, meaning the server is always safely backed up. </p>
+                        <h4>How do I restart/stop/start the server?</h4>
+                        <p>On the "Information" tab there are three buttons marked with the Play( ), Stop( ) and Restart( ) icons. Click these accordingly.</p>
+                        <h4>How can I install RustIO?</h4>
+                        <p>On the "Tools" tab select the "Install" RustIO button. This will automatically install RustIO. After 10 minutes, restart the server using the Restart( ) icon and RustIO should be installed.</p>
                         <h4>How can I update my server and/or Oxide?</h4>
-                        <p>Same as install RustIO on the tools tab is a button for automatically doing this. It will always download the latest version of Oxide and Rust server and install them for you.</p>
+                        <p>On the "Tools" tab select "Install" Update Rust or "Install" Update Oxide, accordingly. It will always download the latest version of the Rust server and Oxide.</p>
                         <h4>How can I install Oxide plugins?</h4>
-                        <p>Connect to your servers FTP and place your plugins in the Plugins folder</p>
+                        <p>Connect to the server's FTP and place the plugins in the "Plugins" folder.</p>
                         <h4>How do I purchase a server?</h4>
-                        <p>From the Servers tab at the top is the new servers box, select a region and hit Buy. You'll be taken to our payment provider for payment details and upon completion your server will be created</p>
-                        <h4>How do I cancel a subscription</h4>
-                        <p>From the servers page next to the server you wish to cancel choose Cancel. This will automatically stop billing at the end of the current expiry.</p>
-                        <h4>Why does my server expire in a month?</h4>
-                        <p>This is simply the date and time of your next bill for that server, unless you've hit Cancel we will automatically bill you at the end of the expiry period and then it will update for another 30 days</p>
+                        <p>On the "Servers" tab is "New Servers" box. Select a region and hit "Buy". You will be taken to the payment provider.The payment provider will request for payment details and upon completion the server will be created.</p>
+                        <h4>How do I cancel a subscription?</h4>
+                        <p>On the "Servers" tab, find the server that you wish to cancel the subscription from and select "Cancel". This will automatically stop billing at the end of the current expiry.</p>
+                        <h4>Why does my server show it expires in a month?</h4>
+                        <p>The expiry is the date and time of your next bill for each server. Unless the subscription has been canceled, you will automatically be billed at the end of the expiry period. It will then update for another 30 days.</p>
                     </div>
                     <h4>How do I install Oxide?</h4>
                     <p>On the service management page under the Tools tab is the button to install Oxide</p>
