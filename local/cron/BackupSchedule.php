@@ -40,7 +40,7 @@ if($services->count())
         }
         if($size < $service->backup_size)
         {
-            Redis::getInstance()->putJobToMachine($service->id, "BackupInstance.sh {$service->service_id}");
+            Redis::getInstance()->putJobToMachine($service->machine_id, "BackupInstance.sh {$service->service_id}");
         }
     }
 }
