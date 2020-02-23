@@ -152,7 +152,7 @@ if($user->isLoggedIn())
                           <label for="hostname">Hostname</label>
                           <input type="text" class="config-input w-input" name="hostname" value="<?php echo escape($service->config()->hostname); ?>" data-name="hostname" id="hostname">
                           <label for="hostname-2">Server Description</label>
-                          <textarea data-name="description" maxlength="512" id="description" value="<?php echo $service->config()->description; ?>" name="description" class="textarea-2 w-input"></textarea>
+                          <textarea data-name="description" maxlength="512" id="description" name="description" class="textarea-2 w-input"><?php echo escape($service->config()->description); ?></textarea>
                           <label for="maxplayers">Max Players</label>
                           <input type="number" class="text-field-5 w-input"  name="maxplayers" value="<?php echo $service->config()->max_players; ?>" data-name="maxplayers" id="maxplayers" required="">
                           <label for="worldsize">World Size</label>
@@ -201,7 +201,7 @@ if($user->isLoggedIn())
                             <div class="grid-cell">
                                 <div class="w-form">
                                     <form class="form">
-                                        <label for="name" class="field-label">Install/Update &amp; Oxide</label>
+                                        <label for="name" class="field-label">Install/Update Oxide</label>
                                         <input type="submit" value="Install" data-wait="Please wait..." data-command="oxide" class="server-command submit-button-5 w-button">
                                         <label class="field-label">Please note this will immediately shutdown your server.</label>
                                     </form>
