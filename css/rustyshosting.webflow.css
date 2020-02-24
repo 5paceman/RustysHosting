@@ -381,6 +381,8 @@ table.serviceTable thead th {
   background-color: #1d1d1d;
   font-family: 'Open Sans', sans-serif;
   color: #000;
+  max-width: 1vw;
+  max-height: 1vh;
 }
 
 .profile-main {
@@ -552,6 +554,8 @@ table.serviceTable thead th {
 .body-4 {
   padding: 0px;
   font-family: 'Open Sans', sans-serif;
+  max-width: 1vw;
+  max-height: 1vh;
 }
 
 .tab-pane-tab-1 {
