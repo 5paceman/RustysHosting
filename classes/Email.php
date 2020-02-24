@@ -21,7 +21,7 @@ class Email {
         $this->_PHPMailer->Username = Config::get('email/username');
         $this->_PHPMailer->Password = Config::get('email/password');
         $this->_PHPMailer->SetFrom(Config::get('email/email'), Config::get('email/email_name'));
-        $this->_PHPMailer->SMTPDebug = SMTP::DEBUG_SERVER;
+        $this->_PHPMailer->SMTPDebug = SMTP::DEBUG_CLIENT;
         $this->_PHPMailer->Debugoutput = function($str, $level) {  
             $log = '/var/www/log/emails.log';
             $date = date('Y-m-d H:i:s');
@@ -43,6 +43,7 @@ class Email {
         $this->_PHPMailer->clearAddresses();
         $this->_PHPMailer->clearAllRecipients();
         $this->_PHPMailer->clearAttachments();
+        $this->_PHPMailer->SetFrom(Config::get('email/email'), Config::get('email/email_name'));
         $this->_PHPMailer->AddEmbeddedImage('email_templates/header-email.png', 'header_logo');
 
         $email = file_get_contents('email_templates/'.$template.'.html');
@@ -63,6 +64,7 @@ class Email {
         $this->_PHPMailer->clearAddresses();
         $this->_PHPMailer->clearAllRecipients();
         $this->_PHPMailer->clearAttachments();
+        $this->_PHPMailer->SetFrom(Config::get('email/email'), Config::get('email/email_name'));
         $this->_PHPMailer->AddEmbeddedImage('email_templates/header-email.png', 'header_logo');
         $this->_PHPMailer->AddReplyTo($replyTo, $replyName);
 
@@ -84,6 +86,7 @@ class Email {
         $this->_PHPMailer->clearAddresses();
         $this->_PHPMailer->clearAllRecipients();
         $this->_PHPMailer->clearAttachments();
+        $this->_PHPMailer->SetFrom(Config::get('email/email'), Config::get('email/email_name'));
         $this->_PHPMailer->AddEmbeddedImage('email_templates/header-email.png', 'header_logo');
         foreach($attachments as $attachment)
         {

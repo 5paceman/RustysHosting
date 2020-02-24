@@ -233,6 +233,8 @@ $token = Token::generate();
                         <p>On the "Servers" tab, find the server that you wish to cancel the subscription from and select "Cancel". This will automatically stop billing at the end of the current expiry.</p>
                         <h4>Why does my server show it expires in a month?</h4>
                         <p>The expiry is the date and time of your next bill for each server. Unless the subscription has been canceled, you will automatically be billed at the end of the expiry period. It will then update for another 30 days.</p>
+                        <h4>How do I report an issue with the server/website?</h4>
+                        <p>On your profile choose "Support" on the left, fill in the support ticket form with the correct ServiceID and Priority. Alternatively send an email to <a href="mailto:support@rustyshosting.io">support@rustyshosting.io</a>
                     </div>
                 </div>
                 <div class="support">
@@ -240,7 +242,7 @@ $token = Token::generate();
                     <div class="w-richtext">
                         <h2>Logging a support request</h2>
                         <p>‍</p>
-                        <p>Once a ticket has been raised all communication will be via email, please make sure you have an up to date email address before raising a ticket.</p>
+                        <p>Once a ticket has been raised all communication will be via email, please make sure you have an up-to-date email address before raising a ticket.</p>
                         <p>Please ensure you read through the FAQ before submitting a support request. Please also <b>thoroughly</b> read through the below before raising a ticket, its important to pick the correct urgency, repeated failure to pick the correct urgency will mean all future requests will automatically be moved to low urgency regardless of impact to your service.</p>
                         <h4>Urgency</h4>
                         <ul>
