@@ -249,8 +249,8 @@ if($user->isLoggedIn())
                                         <?php
                                     }
                                 }
-
-                                $max = $service->data()->backup_size;
+                                $planId = $service->data()->plan_id;
+                                $max = DB::getInstance()->get('plans', array('id', '=', $planId))->first()->backup_size;
                                 $percentage = ceil(($size / $max) *  100);
                             ?>
                         </table>

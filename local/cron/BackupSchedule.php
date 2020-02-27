@@ -38,7 +38,9 @@ if($services->count())
                 }
             }
         }
-        if($size < $service->backup_size && (strtotime($service->expiry) > time()))
+        $planId = $service->plan_id;
+        $max = DB::getInstance()->get('plans', array('id', '=', $planId))->first()->backup_size;
+        if($size < $max && (strtotime($service->expiry) > time()))
         {
             Redis::getInstance()->putJobToMachine($service->machine_id, "BackupInstance.sh {$service->service_id}");
         }
