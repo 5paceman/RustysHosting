@@ -18,7 +18,7 @@ if(!$user->isLoggedIn()) {
                     'description' => $description,
                     'serviceid' => $service->data()->service_id
                 );
-                Email::getInstance()->sendEmailWithReplyTo($user->data()->email, 'New Support Request -'.$urgency, "support-email", $user->data()->email, $user->data()->firstname, $variables);
+                Email::getInstance()->sendEmailWithReplyTo("support@rustyshosting.io", 'New Support Request -'.$urgency, "support-email", $user->data()->email, $user->data()->firstname, $variables);
                 echo 'Submitted.';
             }
         } else {

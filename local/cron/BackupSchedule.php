@@ -38,7 +38,7 @@ if($services->count())
                 }
             }
         }
-        if($size < $service->backup_size && $service->isValid())
+        if($size < $service->backup_size && (strtotime($service->expiry) > time()))
         {
             Redis::getInstance()->putJobToMachine($service->machine_id, "BackupInstance.sh {$service->service_id}");
         }
