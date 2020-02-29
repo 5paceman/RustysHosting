@@ -148,6 +148,18 @@ function pingServer()
     });
 }
 
+$("#serviceTable").fancyTable({
+    sortColumn:0,
+    sortOrder:'descending',
+    sortable:true,
+    pagination:true,
+    searchable:true,
+    globalSearch:true,
+    inputStyle:"width: 30%; color: black;",
+    paginationClass:"pagination",
+    paginationClassActive:"paginationActive"
+});
+
 function updateServerLogs()
 {
     $.ajax({

@@ -37,6 +37,8 @@ function ajaxForm(formEvent)
     });
 }
 
+
+
 var countDown = new Date($(".popup-bold-text").attr("data-time")).getTime();
 console.log("Countdown: " + countDown);
 var countDownInterval = setInterval(function() {
