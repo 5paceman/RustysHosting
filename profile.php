@@ -214,7 +214,7 @@ $token = Token::generate();
                         <h4>How can I run commands on the server?</h4>
                         <p>Use the "Console" tab on the server manage page. Select "Connect" and then type the command in the box and select "Send". For a list of all possible server commands look here: <a href="https://rust.fandom.com/wiki/Server_Commands">Server Commands.</a></p>
                         <h4>How do "Backups" work?</h4>
-                        <p>Backups are taken every half an hour and there is a maximum of 10GB of storage (per server). Backups are stored on an external cloud server, meaning the server is always safely backed up. </p>
+                        <p>Backups are taken every hour and there is a maximum of 10GB of storage (per server). Backups are stored on an external cloud server, meaning the server is always safely backed up. </p>
                         <h4>How do I restart/stop/start the server?</h4>
                         <p>On the "Information" tab there are three buttons marked with the Play(<span style="font-family: 'Fa solid 900', sans-serif;"></span>), Stop(<span style="font-family: 'Fa solid 900', sans-serif;"></span>) and Restart(<span style="font-family: 'Fa solid 900', sans-serif;"></span>) icons. Click these accordingly.</p>
                         <h4>How can I install RustIO?</h4>
