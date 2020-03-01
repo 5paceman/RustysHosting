@@ -22,7 +22,7 @@ if($user->isLoggedIn())
           Redirect::to('profile.php');
         } else {
           $service = new Service(null, $result->first());
-          if(!$service->isValid())
+          if(!$service->isValid() && !$isAdmin)
           {
             Redirect::to('profile.php');
           }
