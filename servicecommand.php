@@ -98,6 +98,22 @@ if(!$user->isLoggedIn()) {
                                 }
                             }
                         break;
+                        case 'delbp':
+                            echo 'Blueprints have been deleted, please restart your server.';
+                            Redis::getInstance()->putJobToMachine($service->data()->machine_id, "DeleteBlueprints.sh {$service->data()->service_id}", array(
+                                "locks" => array(
+                                    "service:{$service->id()}"
+                                )
+                            ));
+                        break;
+                        case 'delmap':
+                            echo 'Map has been deleted, please restart your server.';
+                            Redis::getInstance()->putJobToMachine($service->data()->machine_id, "DeleteMap.sh {$service->data()->service_id}", array(
+                                "locks" => array(
+                                    "service:{$service->id()}"
+                                )
+                            ));
+                        break;
                         default:
                             echo 'Unknown command.';
                         break;

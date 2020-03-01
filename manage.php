@@ -207,6 +207,24 @@ if($user->isLoggedIn())
                                     </form>
                                 </div>
                             </div>
+                            <div class="grid-cell">
+                                <div class="w-form">
+                                    <form class="form">
+                                        <label for="name" class="field-label">Delete Map</label>
+                                        <input type="submit" value="Install" data-wait="Please wait..." data-command="delmap" class="server-command submit-button-5 w-button">
+                                        <label class="field-label">Please note this will immediately shutdown your server.</label>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="grid-cell">
+                                <div class="w-form">
+                                    <form class="form">
+                                        <label for="name" class="field-label">Clear Blueprints</label>
+                                        <input type="submit" value="Install" data-wait="Please wait..." data-command="delbp" class="server-command submit-button-5 w-button">
+                                        <label class="field-label">Please note this will immediately shutdown your server.</label>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div data-w-tab="Tab 5" class="tab-pane-tab-5 w-tab-pane">
