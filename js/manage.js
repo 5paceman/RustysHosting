@@ -148,7 +148,7 @@ function pingServer()
     });
 }
 
-$("#serviceTable").fancyTable({
+$("#backupsTable").fancyTable({
     sortColumn:0,
     sortOrder:'descending',
     sortable:true,

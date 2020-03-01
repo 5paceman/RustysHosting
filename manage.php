@@ -211,7 +211,7 @@ if($user->isLoggedIn())
                     </div>
                     <div data-w-tab="Tab 5" class="tab-pane-tab-5 w-tab-pane">
                         <p><b>Notice:</b> Please note that restoring a backup will immediately stop your server.</p>
-                        <table class="serviceTable">
+                        <table id="backupsTable" class="serviceTable">
                             <thead>
                                 <tr>
                                     <th scope="col">Date</th>
