@@ -6,9 +6,9 @@ session_start();
 
 $GLOBALS['config'] = array (
     'mysql' => array(
-        'host' => 'localhost',
-        'username' => 'webserver',
-        'password' => 'S3cur3D4t4ba53!?',
+        'host' => 'redacted',
+        'username' => 'redacted',
+        'password' => 'redacted',
         'db' => 'hosting'
     ),
     'remember' => array(
@@ -20,13 +20,13 @@ $GLOBALS['config'] = array (
         'token_name' => 'token' 
     ),
     'recaptcha' => array(
-        'secret' => "6LfyntcUAAAAAFh4PO_oDKePNZDkBVSz2N10SJxv",
-        'site' => "6LfyntcUAAAAAI4ZJZbj2eRZkccIybhEgL0KR8pH"
+        'secret' => "redacted",
+        'site' => "redacted"
     ),
     'stripe' => array(
-        'public_api_key' => 'pk_live_d0Mkee67K7Fl7AtmdSAaRCms00XdFGfGyG',
-        'secret_api_key' => 'sk_live_HxVaRVFpvmPdU19pLOONqF1600exQwNaC0',
-        'signing_secret' => 'whsec_CmgImzjnus1bv97KIWDgaxnfqauiJ1hP',
+        'public_api_key' => 'redacted',
+        'secret_api_key' => 'redacted',
+        'signing_secret' => 'redacted',
         'success_page' => 'https://rustyhosting.io/profile.php',
         'cancel_page' => 'https://rustyhosting.io/profile.php'
     ),
@@ -34,7 +34,7 @@ $GLOBALS['config'] = array (
         'smtp_host' => "smtp.office365.com",
         'smtp_port' => '587',
         'username' => 'noreply@rustyshosting.io',
-        'password' => 'N0R3ply3m41l!?',
+        'password' => 'redacted',
         'email' => 'noreply@rustyshosting.io',
         'email_name' => 'Rustys Hosting',
     ),
@@ -44,8 +44,8 @@ $GLOBALS['config'] = array (
     ),
     'backup' => array(
         'backup_expiry' => '30',
-        'spaces_secret' => 'NEVnOA0WeovQLP1EAJ1IkYcsoaf/ZSlrnGnU9rZHezY',
-        'spaces_access' => 'JLT2L3FRCBA7ZQPUXH72',
+        'spaces_secret' => 'redacted',
+        'spaces_access' => 'redacted',
         'rustyshosting-eu' => 'fra1.digitaloceanspaces.com'
     )
 );
