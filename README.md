@@ -3,6 +3,7 @@
 A side project I started in 2019, the goal was a fully functional Rust Server Hosting Website with integration with Stripe. 
 * Used https://github.com/SergeyTsalkov/brooce as job queue
 * Fully automated server provisioning
+* Backup control. Backups to a DigitalOcean space dependant on your region for cheap storage plus automatic clearing of old backups.
 * Servers were Debian, jobs were ran as bash scripts
 * Full integration with stripe, including payment cancellation, trial periods, discounts and monthly recurring subscriptions
 * Responsive Design Index page (Wasn't practical for Control Panel)
